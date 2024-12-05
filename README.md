@@ -13,8 +13,10 @@ This project focuses on distinguishing rural and urban populations in Mexico bas
 ### Dimensions of Processed Data  
 - **Samples:** Total number of samples analyzed (208 samples; 123 from rural and 85 from urban populations).  
 - **Features:**  
-  - **Taxonomic Features:** Operational Taxonomic Units (OTUs) assigned at various levels (e.g., genus, species).  
-  - **Functional Features:** Functional pathways as determined by Humann3.0 pipeline.  
+  - **Taxonomic Features**: The dataset includes **13,529 OTUs** (Operational Taxonomic Units) identified through the Kraken and Bracken tools. These OTUs represent different microbial species and are used to characterize the microbiome diversity of the populations.
+  
+  - **Functional Pathways**: The functional pathways were obtained through the Humann3.0 pipeline and consist of **532 functional pathways**. These pathways represent various biochemical processes that are present in the gut microbiome of the samples.
+
 
 ### Target Variable  
 - **Class Labels:**  
