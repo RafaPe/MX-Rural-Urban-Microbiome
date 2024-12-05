@@ -1,0 +1,15 @@
+name: clustering-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11  # Specify your desired Python version
+  - pandas
+  - seaborn
+  - matplotlib
+  - scikit-learn
+  - yellowbrick
+  - numpy
+  - scipy
+  - openpyxl
+  - jupyterlab
