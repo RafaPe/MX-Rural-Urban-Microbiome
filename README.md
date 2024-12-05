@@ -1,4 +1,57 @@
-# tesis_maestria
+# Gut Microbiome Population Identification  
+
+This project focuses on distinguishing rural and urban populations in Mexico based on gut microbiome samples. By analyzing microbiome data at the taxonomic and functional levels, the aim is to identify unique characteristics of each population.  
+
+## Project Overview  
+- **Objective:** To classify individuals into rural or urban populations based on their gut microbiome's taxonomic composition and functional pathways.  
+- **Data Sources:** Microbiome samples processed through bioinformatics pipelines.  
+- **Applications:** Understanding the relationship between microbiome composition and environmental or lifestyle factors, aiding in population-specific health research.  
+
+---
+
+## Data Overview  
+### Dimensions of Processed Data  
+- **Samples:** Total number of samples analyzed (208 samples; 123 from rural and 85 from urban populations).  
+- **Features:**  
+  - **Taxonomic Features:** Operational Taxonomic Units (OTUs) assigned at various levels (e.g., genus, species).  
+  - **Functional Features:** Functional pathways as determined by Humann3.0 pipeline.  
+
+### Target Variable  
+- **Class Labels:**  
+  - Rural  
+  - Urban  
+
+### Problem Task  
+- **Task Type:** Classification  
+- **Goal:** Predict whether a sample belongs to a rural or urban population using microbiome data.  
+
+---
+
+## Data Preprocessing  
+### Workflow  
+1. **Data Cleaning:**  
+   - Software: [Kneaddata](https://huttenhower.sph.harvard.edu/kneaddata/)  
+   - Steps: Removal of host contamination and low-quality reads.  
+
+2. **Taxonomic Assignment:**  
+   - Software: [Kraken2](https://ccb.jhu.edu/software/kraken2/) and [Bracken](https://ccb.jhu.edu/software/bracken/).  
+   - Output: OTUs assigned to taxonomic categories.  
+
+3. **Functional Pathway Analysis:**  
+   - Software: [HUMAnN 3.0](https://huttenhower.sph.harvard.edu/humann/).  
+   - Output: Abundances of functional pathways in the microbiome.  
+
+---
+
+## Analytical Objective  
+The key focus is to utilize machine learning techniques to:  
+1. **Identify:** Which taxonomic and/or functional features are most predictive of the population type.  
+2. **Characterize:** Unique microbiome traits associated with rural and urban populations.  
+
+---
+
+
+
 
 Asignación taxonómica Kracken/Bracken [Aquí](datasets/bracken_taxonomy.csv)
 
