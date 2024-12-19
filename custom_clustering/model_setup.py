@@ -7,7 +7,7 @@ from sklearn.base import BaseEstimator, ClusterMixin
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import make_scorer
 
-class CustomClustering(BaseEstimator, ClusterMixin):
+class CustomClustering(ClusterMixin, BaseEstimator):
     def __init__(self, k=2, algorithm='kmeans', filter_criteria='presence', filter_threshold=25):
         """
         Parameters:
@@ -70,9 +70,9 @@ class CustomClustering(BaseEstimator, ClusterMixin):
             raise ValueError("Invalid algorithm. Choose 'kmeans' or 'gaussian_mixture'.")
     
         # Scoring metrics
-        self.silhouette_score_ = silhouette_score(self.data_scaled_, self.labels_)
-        self.davies_bouldin_score_ = davies_bouldin_score(self.data_scaled_, self.labels_)
-        self.calinski_harabasz_score_ = calinski_harabasz_score(self.data_scaled_, self.labels_)
+        # self.silhouette_score_ = silhouette_score(self.data_scaled_, self.labels_)
+        # self.davies_bouldin_score_ = davies_bouldin_score(self.data_scaled_, self.labels_)
+        # self.calinski_harabasz_score_ = calinski_harabasz_score(self.data_scaled_, self.labels_)
     
         return self
 
