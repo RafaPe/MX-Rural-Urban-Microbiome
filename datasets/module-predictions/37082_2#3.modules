@@ -1,0 +1,24 @@
+Module	Taxon	Value	Coverage
+MGB033	Clostridium_A leptum	1.0	0.6
+MGB043	Clostridium_A leptum	1.0	0.5
+MGB005	Ruminococcus_E bromii_B	2.0	0.7142857142857143
+MGB033	Ruminococcus_E bromii_B	1.0	0.6
+MGB043	Ruminococcus_E bromii_B	1.0	0.5
+MGB033	Roseburia inulinivorans	2.0	0.6
+MGB033	Gemmiger qucibialis	1.0	0.4
+MGB043	Gemmiger qucibialis	1.0	0.5
+MGB033	Eubacterium_R sp000436835	1.0	0.6
+MGB043	Eubacterium_R sp000436835	1.0	0.5
+MGB043	Ruthenibacterium merdipullorum	1.0	0.5
+MGB005	Roseburia intestinalis	1.0	0.5714285714285714
+MGB043	Roseburia intestinalis	1.0	0.5
+MGB005	CAG-41 sp900066215	1.0	0.7142857142857143
+MGB033	CAG-41 sp900066215	1.0	0.6
+MGB043	CAG-41 sp900066215	1.0	0.5
+MGB005	Bifidobacterium longum	1.0	0.5714285714285714
+MGB033	Bifidobacterium longum	1.0	0.4
+MGB043	Bifidobacterium longum	1.0	0.5
+MGB033	Ruminiclostridium_E siraeum	1.0	0.6
+MGB043	Ruminiclostridium_E siraeum	1.0	0.5
+MGB033	UBA11524 sp000437595	1.0	0.4
+MGB043	UBA11524 sp000437595	1.0	0.5

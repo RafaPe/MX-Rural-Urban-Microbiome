@@ -1,0 +1,21 @@
+Module	Taxon	Value	Coverage
+MGB005	Butyribacter sp003529475	1.0	0.7142857142857143
+MGB033	Butyribacter sp003529475	1.0	0.6
+MGB043	Butyribacter sp003529475	1.0	0.5
+MGB005	Wujia chipingensis	1.0	0.5714285714285714
+MGB033	Wujia chipingensis	1.0	0.6
+MGB043	Wujia chipingensis	1.0	0.5
+MGB052	Wujia chipingensis	1.0	0.6
+MGB005	Ruminococcus_E sp003526955	1.0	0.5714285714285714
+MGB033	Ruminococcus_E sp003526955	1.0	0.4
+MGB033	Faecalibacterium hattorii	1.0	0.4
+MGB043	Faecalibacterium hattorii	1.0	0.5
+MGB005	Agathobacter faecis	0.75	0.5714285714285714
+MGB033	Agathobacter faecis	1.5	0.4
+MGB043	Agathobacter faecis	1.0	0.5
+MGB005	CAG-217 sp000436335	1.0	0.5714285714285714
+MGB033	CAG-217 sp000436335	1.0	0.6
+MGB043	CAG-217 sp000436335	1.0	0.5
+MGB005	Agathobacter rectalis	1.0	0.7142857142857143
+MGB033	Agathobacter rectalis	1.0	0.6
+MGB043	Agathobacter rectalis	1.0	0.5

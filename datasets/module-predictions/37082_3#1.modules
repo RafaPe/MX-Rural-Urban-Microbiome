@@ -1,0 +1,11 @@
+Module	Taxon	Value	Coverage
+MGB005	Ruminococcus_E bromii_B	1.0	0.7142857142857143
+MGB033	Ruminococcus_E bromii_B	1.0	0.6
+MGB043	Ruminococcus_E bromii_B	1.0	0.5
+MGB005	Ruminococcus_E sp003526955	1.0	0.5714285714285714
+MGB033	Ruminococcus_E sp003526955	1.0	0.6
+MGB005	Fusicatenibacter saccharivorans	1.0	0.7142857142857143
+MGB033	Fusicatenibacter saccharivorans	1.0	0.6
+MGB043	Fusicatenibacter saccharivorans	1.0	0.5
+MGB033	Catenibacterium mitsuokai	1.0	0.6
+MGB043	CAG-269 sp000431335	1.0	0.5

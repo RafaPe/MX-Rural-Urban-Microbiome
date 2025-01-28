@@ -1,0 +1,17 @@
+Module	Taxon	Value	Coverage
+MGB005	Phocaeicola vulgatus	1.0	0.7142857142857143
+MGB033	Phocaeicola vulgatus	1.0	0.4
+MGB037	Phocaeicola vulgatus	1.0	0.5
+MGB040	Phocaeicola vulgatus	1.0	0.4166666666666667
+MGB043	Phocaeicola vulgatus	1.0	0.5
+MGB055	Phocaeicola vulgatus	1.0	0.4
+MGB033	Faecalibacterium prausnitzii	1.0	0.4
+MGB033	Fusobacterium_A sp900555845	1.0	0.6
+MGB043	Fusobacterium_A sp900555845	1.0	0.5
+MGB051	Fusobacterium_A sp900555845	1.0	0.5
+MGB053	Fusobacterium_A sp900555845	1.5	0.5
+MGB033	Akkermansia muciniphila	1.0	0.4
+MGB034	Akkermansia muciniphila	1.0	0.42857142857142855
+MGB005	Phascolarctobacterium_A succinatutens	1.0	0.7142857142857143
+MGB045	Phascolarctobacterium_A succinatutens	1.5	0.4
+MGB055	Phascolarctobacterium_A succinatutens	1.25	0.4

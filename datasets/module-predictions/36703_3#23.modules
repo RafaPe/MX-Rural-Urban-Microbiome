@@ -1,0 +1,19 @@
+Module	Taxon	Value	Coverage
+MGB005	Ruminococcus_E bromii_B	1.0	0.7142857142857143
+MGB033	Ruminococcus_E bromii_B	1.0	0.6
+MGB033	Catenibacterium sp900540685	1.0	0.6
+MGB005	Fusicatenibacter saccharivorans	1.0	0.7142857142857143
+MGB033	Fusicatenibacter saccharivorans	1.0	0.6
+MGB043	Fusicatenibacter saccharivorans	1.0	0.5
+MGB033	Holdemanella sp900547815	1.0	0.6
+MGB033	Enterococcus_B hirae	1.0	0.4
+MGB034	Enterococcus_B hirae	1.0	0.42857142857142855
+MGB040	Enterococcus_B hirae	1.0	0.5
+MGB043	Enterococcus_B hirae	1.0	0.5
+MGB005	CAG-882 sp003486385	1.0	0.7142857142857143
+MGB043	CAG-882 sp003486385	1.0	0.5
+MGB005	Blautia_A wexlerae	1.0	0.7142857142857143
+MGB033	Blautia_A wexlerae	1.0	0.6
+MGB043	Blautia_A wexlerae	1.0	0.5
+MGB033	Gemmiger variabilis_B	1.0	0.4
+MGB043	Gemmiger variabilis_B	1.0	0.5

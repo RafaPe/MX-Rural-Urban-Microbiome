@@ -1,0 +1,15 @@
+Module	Taxon	Value	Coverage
+MGB005	Prevotella sp015074785	1.0	0.5714285714285714
+MGB033	Prevotella sp015074785	1.0	0.4
+MGB005	Ruminococcus_E bromii_B	1.0	0.7142857142857143
+MGB033	Ruminococcus_E bromii_B	1.0	0.6
+MGB043	Ruminococcus_E bromii_B	1.0	0.5
+MGB005	Ruminococcus_C callidus	1.0	0.5714285714285714
+MGB033	Ruminococcus_C callidus	1.0	0.6
+MGB043	Ruminococcus_C callidus	1.0	0.5
+MGB005	Ruminococcus_E sp934476515	1.0	0.5714285714285714
+MGB033	Ruminococcus_E sp934476515	1.0	0.6
+MGB043	Ruminococcus_E sp934476515	1.0	0.5
+MGB005	Dialister sp000434475	1.0	0.42857142857142855
+MGB045	Dialister sp000434475	1.0	0.4
+MGB055	Dialister sp000434475	1.0	0.4

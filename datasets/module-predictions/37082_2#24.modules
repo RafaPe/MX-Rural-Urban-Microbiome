@@ -1,0 +1,18 @@
+Module	Taxon	Value	Coverage
+MGB005	Ligilactobacillus ruminis	1.0	0.42857142857142855
+MGB043	CAG-492 sp000434335	1.0	0.5
+MGB033	Bulleidia sp934754415	1.0	0.4
+MGB043	Bulleidia sp934754415	2.0	0.5
+MGB052	Bulleidia sp934754415	1.5	0.4
+MGB005	Ruminococcus_E sp003526955	1.0	0.5714285714285714
+MGB033	Ruminococcus_E sp003526955	1.0	0.6
+MGB005	Clostridium sp000435835	1.0	0.42857142857142855
+MGB033	Clostridium sp000435835	1.0	0.6
+MGB043	Clostridium sp000435835	2.0	0.5
+MGB052	Clostridium sp000435835	1.0	0.6
+MGB005	Faecalibacillus intestinalis	1.0	0.7142857142857143
+MGB033	Faecalibacillus intestinalis	1.0	0.4
+MGB043	Faecalibacillus intestinalis	1.0	0.5
+MGB005	Anaerobutyricum soehngenii	1.0	0.5714285714285714
+MGB033	Anaerobutyricum soehngenii	1.0	0.6
+MGB043	Anaerobutyricum soehngenii	1.0	0.5
