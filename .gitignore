@@ -46,3 +46,15 @@ $RECYCLE.BIN/
 #Ignore data files
 data/*
 !data/.gitkeep
+
+#Ignore images
+imgs/*
+
+notebooks/*.csv
+
+custom_clustering/__pycache__/
+
+notebooks/Untitled?.ipynb
+notebooks/Untitled.ipynb
+notebooks/Untitled-Copy1.ipynb
+notebooks/*.png
