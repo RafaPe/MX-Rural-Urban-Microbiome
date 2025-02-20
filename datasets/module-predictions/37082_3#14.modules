@@ -1,0 +1,24 @@
+Module	Taxon	Value	Coverage
+MGB033	Gemmiger formicilis	1.0	0.4
+MGB043	Gemmiger formicilis	1.0	0.5
+MGB052	Gemmiger formicilis	1.0	0.6
+MGB033	Eubacterium_R sp900539325	1.0	0.6
+MGB043	Eubacterium_R sp900539325	1.0	0.5
+MGB005	Ruminococcus_E bromii_B	1.0	0.7142857142857143
+MGB033	Ruminococcus_E bromii_B	1.0	0.6
+MGB043	Ruminococcus_E bromii_B	1.0	0.5
+MGB052	Vescimonas sp003539495	2.5	0.4
+MGB005	Bifidobacterium pseudocatenulatum	1.0	0.5714285714285714
+MGB005	Acetatifactor sp900066565	1.0	0.7142857142857143
+MGB033	Acetatifactor sp900066565	1.0	0.4
+MGB043	Acetatifactor sp900066565	1.0	0.5
+MGB052	Acetatifactor sp900066565	1.0	0.6
+MGB005	Faecalibacillus intestinalis	1.0	0.7142857142857143
+MGB033	Faecalibacillus intestinalis	1.0	0.6
+MGB043	Faecalibacillus intestinalis	1.0	0.5
+MGB005	Akkermansia muciniphila	1.0	0.42857142857142855
+MGB033	Akkermansia muciniphila	1.0	0.6
+MGB034	Akkermansia muciniphila	1.0	0.42857142857142855
+MGB055	Akkermansia muciniphila	1.0	0.4
+MGB043	CAG-269 sp900754285	1.0	0.5
+MGB033	Blautia_A wexlerae	1.0	0.4

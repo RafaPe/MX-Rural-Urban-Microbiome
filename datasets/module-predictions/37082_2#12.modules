@@ -1,0 +1,21 @@
+Module	Taxon	Value	Coverage
+MGB005	RUG115 sp900066395	1.0	0.42857142857142855
+MGB033	RUG115 sp900066395	1.0	0.4
+MGB043	RUG115 sp900066395	1.0	0.5
+MGB005	Ruminococcus_E bromii_B	1.0	0.7142857142857143
+MGB033	Ruminococcus_E bromii_B	1.0	0.6
+MGB043	Ruminococcus_E bromii_B	1.0	0.5
+MGB033	Fimenecus sp000432435	1.0	0.6
+MGB043	Fimenecus sp000432435	1.0	0.5
+MGB005	Roseburia intestinalis	1.0	0.42857142857142855
+MGB033	Roseburia intestinalis	1.0	0.6
+MGB043	Roseburia intestinalis	1.0	0.5
+MGB005	Akkermansia muciniphila	1.0	0.42857142857142855
+MGB033	Akkermansia muciniphila	1.0	0.4
+MGB034	Akkermansia muciniphila	1.0	0.42857142857142855
+MGB055	Akkermansia muciniphila	1.0	0.4
+MGB005	Lachnospira sp000437735	1.0	0.5714285714285714
+MGB033	Lachnospira sp000437735	1.0	0.4
+MGB005	Prevotella copri_B	1.0	0.5714285714285714
+MGB033	Prevotella copri_B	1.0	0.6
+MGB040	Prevotella copri_B	1.0	0.5

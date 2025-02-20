@@ -1,0 +1,19 @@
+Module	Taxon	Value	Coverage
+MGB033	Phocaeicola vulgatus	1.0	0.4
+MGB037	Phocaeicola vulgatus	1.0	0.5
+MGB055	Phocaeicola vulgatus	1.5	0.4
+MGB005	Ruminococcus_E sp003526955	1.0	0.5714285714285714
+MGB033	Ruminococcus_E sp003526955	1.0	0.6
+MGB005	Phascolarctobacterium faecium	1.0	0.7142857142857143
+MGB045	Phascolarctobacterium faecium	1.5	0.4
+MGB055	Phascolarctobacterium faecium	1.5	0.4
+MGB005	Acetatifactor intestinalis	1.0	0.7142857142857143
+MGB033	Acetatifactor intestinalis	1.0	0.4
+MGB052	Acetatifactor intestinalis	1.0	0.6
+MGB033	Fimenecus sp000432435	1.0	0.6
+MGB043	Fimenecus sp000432435	1.0	0.5
+MGB005	Akkermansia muciniphila	1.0	0.42857142857142855
+MGB033	Akkermansia muciniphila	1.0	0.4
+MGB055	Akkermansia muciniphila	1.0	0.4
+MGB005	Agathobacter rectalis	1.0	0.5714285714285714
+MGB033	Agathobacter rectalis	1.0	0.4

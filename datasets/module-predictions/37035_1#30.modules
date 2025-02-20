@@ -1,0 +1,26 @@
+Module	Taxon	Value	Coverage
+MGB005	Lachnospira rogosae	1.0	0.42857142857142855
+MGB033	Lachnospira rogosae	1.0	0.6
+MGB043	Lachnospira rogosae	1.0	0.5
+MGB005	Dialister hominis	1.0	0.7142857142857143
+MGB045	Dialister hominis	1.0	0.4
+MGB055	Dialister hominis	1.0	0.4
+MGB033	Prevotella stercorea	1.0	0.4
+MGB040	Prevotella stercorea	1.0	0.4166666666666667
+MGB043	Prevotella stercorea	1.0	0.5
+MGB005	Agathobacter faecis	1.0	0.5714285714285714
+MGB033	Agathobacter faecis	1.0	0.6
+MGB043	Agathobacter faecis	1.0	0.5
+MGB005	Ruminococcus_C sp000433635	1.0	0.7142857142857143
+MGB033	Ruminococcus_C sp000433635	1.0	0.4
+MGB043	Ruminococcus_C sp000433635	1.0	0.5
+MGB033	Alistipes putredinis	1.0	0.4
+MGB041	Alistipes putredinis	1.0	0.5
+MGB033	Fimenecus sp000432435	1.0	0.4
+MGB005	Prevotella copri	0.5	0.42857142857142855
+MGB040	Prevotella copri	1.0	0.4166666666666667
+MGB037	Limisoma sp000437795	1.0	0.5
+MGB053	Limisoma sp000437795	0.75	0.5
+MGB005	Agathobacter rectalis	1.0	0.7142857142857143
+MGB033	Agathobacter rectalis	1.0	0.6
+MGB043	Agathobacter rectalis	1.0	0.5

@@ -1,0 +1,15 @@
+Module	Taxon	Value	Coverage
+MGB033	Bulleidia sp934754415	1.0	0.4
+MGB043	Bulleidia sp934754415	1.0	0.5
+MGB052	Bulleidia sp934754415	2.0	0.4
+MGB005	Ruminococcus_E sp003526955	0.5	0.42857142857142855
+MGB033	Ruminococcus_E sp003526955	1.0	0.4
+MGB005	Streptococcus salivarius	1.0	0.5714285714285714
+MGB005	Rothia mucilaginosa_B	1.0	0.42857142857142855
+MGB033	Rothia mucilaginosa_B	1.0	0.4
+MGB034	Rothia mucilaginosa_B	1.0	0.5714285714285714
+MGB040	Rothia mucilaginosa_B	1.0	0.5833333333333334
+MGB043	Rothia mucilaginosa_B	1.0	0.5
+MGB005	Blautia_A wexlerae	0.5	0.42857142857142855
+MGB033	Blautia_A wexlerae	1.0	0.4
+MGB043	Blautia_A wexlerae	1.0	0.5

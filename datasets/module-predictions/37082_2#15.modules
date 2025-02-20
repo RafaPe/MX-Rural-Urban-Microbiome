@@ -1,0 +1,24 @@
+Module	Taxon	Value	Coverage
+MGB005	Faecalibacillus faecis	1.0	0.7142857142857143
+MGB033	Faecalibacillus faecis	1.0	0.6
+MGB043	Faecalibacillus faecis	1.0	0.5
+MGB033	UBA1417 sp003531055	1.0	0.4
+MGB043	UBA1417 sp003531055	1.0	0.5
+MGB005	Ruminococcus_E sp003526955	1.0	0.5714285714285714
+MGB033	Ruminococcus_E sp003526955	1.0	0.6
+MGB005	Fusicatenibacter saccharivorans	1.0	0.7142857142857143
+MGB033	Fusicatenibacter saccharivorans	1.0	0.6
+MGB043	Fusicatenibacter saccharivorans	1.0	0.5
+MGB033	Thomasclavelia spiroformis_A	1.0	0.6
+MGB033	Gemmiger qucibialis	1.0	0.4
+MGB033	Fimenecus sp000432435	1.0	0.6
+MGB043	Fimenecus sp000432435	1.0	0.5
+MGB005	Eubacterium_I ramulus	1.0	0.42857142857142855
+MGB033	Eubacterium_I ramulus	1.0	0.6
+MGB005	Akkermansia muciniphila	1.0	0.42857142857142855
+MGB033	Akkermansia muciniphila	1.0	0.4
+MGB055	Akkermansia muciniphila	1.0	0.4
+MGB043	Aphodocola sp900772415	1.0	0.5
+MGB005	Blautia_A wexlerae	1.0	0.7142857142857143
+MGB033	Blautia_A wexlerae	1.0	0.6
+MGB043	Blautia_A wexlerae	1.0	0.5

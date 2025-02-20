@@ -1,0 +1,15 @@
+Module	Taxon	Value	Coverage
+MGB005	Escherichia coli	1.0	0.42857142857142855
+MGB020	Escherichia coli	1.0	0.6666666666666666
+MGB021	Escherichia coli	1.0	0.5
+MGB033	Escherichia coli	1.0	0.6
+MGB034	Escherichia coli	1.0	0.42857142857142855
+MGB040	Escherichia coli	1.0	0.8333333333333334
+MGB043	Escherichia coli	2.0	0.5
+MGB056	Escherichia coli	1.0	0.7142857142857143
+MGB005	Streptococcus lutetiensis	1.0	0.42857142857142855
+MGB033	Streptococcus lutetiensis	1.0	0.6
+MGB005	Ruminococcus_E sp003526955	1.0	0.5714285714285714
+MGB033	Ruminococcus_E sp003526955	1.0	0.6
+MGB033	Treponema_D succinifaciens	1.0	0.4
+MGB043	Treponema_D succinifaciens	1.0	0.5

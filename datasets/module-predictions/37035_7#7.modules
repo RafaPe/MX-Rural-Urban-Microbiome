@@ -1,0 +1,15 @@
+Module	Taxon	Value	Coverage
+MGB005	Coprococcus eutactus_A	1.0	0.5714285714285714
+MGB033	Coprococcus eutactus_A	1.0	0.6
+MGB043	Coprococcus eutactus_A	1.0	0.5
+MGB052	Coprococcus eutactus_A	1.0	0.4
+MGB005	Ruminococcus_E bromii_B	1.0	0.7142857142857143
+MGB033	Ruminococcus_E bromii_B	1.0	0.6
+MGB043	Ruminococcus_E bromii_B	1.0	0.5
+MGB005	Eubacterium_R sp000436835	1.0	0.7142857142857143
+MGB033	Eubacterium_R sp000436835	1.0	0.6
+MGB043	Eubacterium_R sp000436835	1.0	0.5
+MGB033	Ruminococcus_C sp900770195	1.0	0.4
+MGB005	Prevotella sp002299635	1.0	0.5714285714285714
+MGB033	Prevotella sp002299635	1.0	0.6
+MGB040	Prevotella sp002299635	1.0	0.5
