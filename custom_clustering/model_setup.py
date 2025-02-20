@@ -6,9 +6,10 @@ from sklearn.mixture import GaussianMixture
 from sklearn.base import BaseEstimator, ClusterMixin
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import make_scorer
+from sklearn.cluster import HDBSCAN
 
-class CustomClustering(BaseEstimator, ClusterMixin):
-    def __init__(self, k=2, algorithm='kmeans', filter_criteria='presence', filter_threshold=25):
+class CustomClustering(ClusterMixin, BaseEstimator):
+    def __init__(self, algorithm='kmeans', filter_criteria='presence', filter_threshold=25, **kwargs):
         """
         Parameters:
         -----------
@@ -26,10 +27,10 @@ class CustomClustering(BaseEstimator, ClusterMixin):
             - Number of samples for 'presence'.
             - Mean abundance multiplier for 'abundance'.
         """
-        self.k = k
         self.algorithm = algorithm
         self.filter_criteria = filter_criteria
         self.filter_threshold = filter_threshold
+        self.kwargs = kwargs
 
     def fit(self, X, y=None):
         """
@@ -59,20 +60,24 @@ class CustomClustering(BaseEstimator, ClusterMixin):
     
         # Clustering
         if self.algorithm == 'kmeans':
-            self.model_ = KMeans(n_clusters=self.k, n_init=10, max_iter=300, random_state=42)
+            self.model_ = KMeans(**self.kwargs)
             self.labels_ = self.model_.fit_predict(self.data_scaled_)
     
         elif self.algorithm == 'gaussian_mixture':
-            self.model_ = GaussianMixture(n_components=self.k, max_iter=100, init_params='k-means++', random_state=42)
+            self.model_ = GaussianMixture(**self.kwargs)
+            self.labels_ = self.model_.fit_predict(self.data_scaled_)
+
+        elif self.algorithm == 'hdbscan':
+            self.model_ = HDBSCAN(**self.kwargs)
             self.labels_ = self.model_.fit_predict(self.data_scaled_)
     
         else:
             raise ValueError("Invalid algorithm. Choose 'kmeans' or 'gaussian_mixture'.")
     
         # Scoring metrics
-        self.silhouette_score_ = silhouette_score(self.data_scaled_, self.labels_)
-        self.davies_bouldin_score_ = davies_bouldin_score(self.data_scaled_, self.labels_)
-        self.calinski_harabasz_score_ = calinski_harabasz_score(self.data_scaled_, self.labels_)
+        # self.silhouette_score_ = silhouette_score(self.data_scaled_, self.labels_)
+        # self.davies_bouldin_score_ = davies_bouldin_score(self.data_scaled_, self.labels_)
+        # self.calinski_harabasz_score_ = calinski_harabasz_score(self.data_scaled_, self.labels_)
     
         return self
 
