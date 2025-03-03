@@ -7,6 +7,9 @@ from sklearn.base import BaseEstimator, ClusterMixin
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import make_scorer
 from sklearn.cluster import HDBSCAN
+from sklearn.model_selection import StratifiedKFold, cross_val_score
+from sklearn.metrics.cluster import homogeneity_score, adjusted_mutual_info_score
+import optuna
 
 class CustomClustering(ClusterMixin, BaseEstimator):
     def __init__(self, algorithm='kmeans', filter_criteria='presence', filter_threshold=25, **kwargs):
@@ -100,3 +103,53 @@ class CustomClustering(ClusterMixin, BaseEstimator):
         # Scale the input data using the fitted scaler
         X_scaled = self.scaler_.transform(X_filtered)
         return self.model_.predict(X_scaled)
+
+
+def optimization_function(trial, data, labels):
+    algorithm = trial.suggest_categorical('algorithm', ['kmeans', 'gaussian_mixture'])
+    filter_criteria = trial.suggest_categorical('filter_criteria', ['presence', 'abundance'])
+    filter_threshold = trial.suggest_float('filter_threshold', 0, 120, step=5) if filter_criteria == 'presence' else trial.suggest_float('filter_threshold', 0, 2.7, step=0.1)
+
+    # Convert to integer only if needed
+    if filter_criteria == 'presence':
+        filter_threshold = int(filter_threshold)
+
+    k = trial.suggest_int('k', 2, 6)
+
+    if algorithm == 'kmeans':
+        model = CustomClustering(
+            algorithm=algorithm,
+            filter_criteria=filter_criteria,
+            filter_threshold=filter_threshold,
+            n_clusters=k
+        )
+    else:
+        model = CustomClustering(
+            algorithm=algorithm,
+            filter_criteria=filter_criteria,
+            filter_threshold=filter_threshold,
+            n_components=k,
+            covariance_type='diag',
+        )
+
+   
+
+    skf = StratifiedKFold(n_splits=5)
+
+    scores = []
+
+    for train_index, test_index in skf.split(data, labels):
+        X_train, X_test = data.iloc[train_index], data.iloc[test_index]
+        y_train = [labels[i] for i in train_index]
+        y_test = [labels[i] for i in test_index]
+        
+        model.fit(X_train, y_train)
+        
+        y_pred = model.predict(X_test)
+
+        score = adjusted_mutual_info_score(y_test, y_pred)
+        scores.append(score)
+
+    mean_score = sum(scores) / len(scores)
+
+    return mean_score
