@@ -153,3 +153,31 @@ def optimization_function(trial, data, labels):
     mean_score = sum(scores) / len(scores)
 
     return mean_score
+
+def get_clustering_metrics(data, model, cluster_labels, true_labels):
+    """
+    Compute clustering evaluation metrics for the provided data and cluster assignments.
+
+    Args:
+        data (pd.DataFrame): A DataFrame of shape (n_samples, n_features) with the input data.
+        model (object): A fitted clustering model that has a `selected_features_` attribute 
+                        containing the indices of the selected features.
+        cluster_labels (np.ndarray): A 1D array of shape (n_samples,) with the predicted cluster labels.
+        true_labels (np.ndarray): A 1D array of shape (n_samples,) with the true labels of the data.
+
+    Returns:
+        Tuple[float, float, float, float]: A tuple containing:
+            - Silhouette score (float): Measures how similar each sample is to its own cluster compared to other clusters.
+            - Davies-Bouldin score (float): Measures the average similarity ratio of each cluster with other clusters.
+            - Calinski-Harabasz score (float): Measures the ratio of the sum of between-cluster dispersion and within-cluster dispersion.
+            - Homogeneity score (float): Measures the extent to which clusters contain only members of a single class.
+    """
+    scaler = StandardScaler()
+    data = data[model.selected_features_]
+    data = scaler.fit_transform(data)
+    print(f'Silhoutte score: {silhouette_score(data, cluster_labels)}')
+    print(f'Davies-Bouldin score: {davies_bouldin_score(data, cluster_labels)}')
+    print(f'Calinksi-Harabasz score: {calinski_harabasz_score(data, cluster_labels)}')
+    print(f'Homogenity score: {homogeneity_score(true_labels, cluster_labels)}')
+
+    return silhouette_score(data, cluster_labels), davies_bouldin_score(data, cluster_labels), calinski_harabasz_score(data, cluster_labels), homogeneity_score(true_labels, cluster_labels)

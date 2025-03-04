@@ -1,2 +1,3 @@
 from .model_setup import CustomClustering
 from .model_setup import optimization_function
+from .model_setup import get_clustering_metrics
