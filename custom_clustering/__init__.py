@@ -3,3 +3,4 @@ from .model_setup import optimization_function
 from .model_setup import get_clustering_metrics
 from .model_setup import plot_clustering
 from .model_setup import cluster_analysis
+from .model_setup import get_feature_importance

@@ -13,6 +13,7 @@ from sklearn.metrics import make_scorer
 from sklearn.cluster import HDBSCAN
 from sklearn.model_selection import StratifiedKFold, cross_val_score
 from sklearn.metrics.cluster import homogeneity_score, adjusted_mutual_info_score
+from scipy.stats import ks_2samp
 import optuna
 
 
@@ -113,7 +114,7 @@ class CustomClustering(ClusterMixin, BaseEstimator):
 def optimization_function(trial, data, labels):
     algorithm = trial.suggest_categorical('algorithm', ['kmeans', 'gaussian_mixture'])
     filter_criteria = trial.suggest_categorical('filter_criteria', ['presence', 'abundance'])
-    filter_threshold = trial.suggest_float('filter_threshold', 0, 120, step=5) if filter_criteria == 'presence' else trial.suggest_float('filter_threshold', 0, 2.7, step=0.1)
+    filter_threshold = trial.suggest_float('filter_threshold', 0, 120, step=5) if filter_criteria == 'presence' else trial.suggest_float('filter_threshold', 0, 2.7, step=0.05)
 
     # Convert to integer only if needed
     if filter_criteria == 'presence':
@@ -319,3 +320,56 @@ def cluster_analysis(data: pd.DataFrame, clusters: np.array, metadata: pd.DataFr
     # Adjust layout and show plot
     plt.tight_layout()
     plt.show()
+
+
+def get_feature_importance(data: pd.DataFrame, metadata: pd.DataFrame) -> pd.DataFrame:
+    """
+    Computes feature importance by comparing the distributions of features (OTUs) between urban and rural samples.
+    
+    Parameters:
+    data (pd.DataFrame): Feature abundance data with sample IDs as index.
+    metadata (pd.DataFrame): Metadata containing sample IDs and lifestyle classification ('Urban' or 'Rural').
+    
+    Returns:
+    pd.DataFrame: DataFrame containing OTU names, KS statistic, p-values, and species names, sorted by KS statistic.
+    """
+    
+    # Extract sample IDs based on lifestyle
+    rural_ids = metadata.loc[metadata['Lifestyle'] == 'Rural', 'Lane']
+    urban_ids = metadata.loc[metadata['Lifestyle'] == 'Urban', 'Lane']
+    
+    # Filter data to keep only relevant samples
+    rural_features = data.loc[data.index.intersection(rural_ids)]
+    urban_features = data.loc[data.index.intersection(urban_ids)]
+    
+    # Initialize lists to store results
+    otus, kstest, p_values = [], [], []
+    
+    for otu in data.columns:
+        rural_dist = rural_features[otu].dropna()
+        urban_dist = urban_features[otu].dropna()
+        
+        if rural_dist.empty or urban_dist.empty:
+            continue  # Skip if there is no data for comparison
+        
+        ks_stat, p_value = ks_2samp(rural_dist, urban_dist)
+        
+        otus.append(otu)
+        kstest.append(ks_stat)
+        p_values.append(p_value)
+    
+    # Create DataFrame with KS test results
+    feature_importance = pd.DataFrame({
+        'OTU': otus,
+        'KS statistic': kstest,
+        'p-value': p_values
+    })
+    
+    # Load taxonomy table and create species names
+    otus_df = pd.read_csv('../data/taxonomy_table_otus.csv', index_col=0)
+    otus_df['SpeciesFull'] = otus_df['Genus'] + ' ' + otus_df['Species']
+    
+    # Map OTU to species
+    feature_importance['Specie'] = feature_importance['OTU'].map(otus_df['SpeciesFull'])
+    
+    return feature_importance.sort_values(by='KS statistic', ascending=False)
