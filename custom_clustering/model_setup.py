@@ -181,3 +181,36 @@ def get_clustering_metrics(data, model, cluster_labels, true_labels):
     print(f'Homogenity score: {homogeneity_score(true_labels, cluster_labels)}')
 
     return silhouette_score(data, cluster_labels), davies_bouldin_score(data, cluster_labels), calinski_harabasz_score(data, cluster_labels), homogeneity_score(true_labels, cluster_labels)
+
+def plot_clustering(data:pd.DataFrame, labels:list, clusters):
+    """
+    Visualize clustering results in a 2D PCA plot with additional metadata information.
+
+    Parameters:
+    -----------
+    clusters_data : pd.DataFrame
+        The scaled and filtered dataset used for clustering. Rows represent samples, and columns represent features.
+    
+    metadata : pd.DataFrame
+        Metadata associated with the samples, containing at least the following columns:
+        - 'Lane': Unique identifier matching the sample indices in `clusters_data`.
+        - 'Lifestyle': Lifestyle category (e.g., rural or urban) for each sample.
+        - 'BMI': Body Mass Index (BMI) value for each sample, used for categorization.
+
+    labels : list
+        Cluster labels for each sample, as obtained from the clustering algorithm.
+    """
+    scaler = StandardScaler()
+    data_scaled = scaler.fit_transform(data)
+    pca = PCA(n_components=2)
+    components = pca.fit_transform(data.to_numpy())
+    components = pd.DataFrame(components)
+    components['labels'] = labels
+    components.columns = ['x', 'y', 'labels']
+    components.index = data.index
+    components['clusters'] = clusters
+    # components['BMI'] = bmi
+    
+    plt.figure(figsize=(8, 6))
+    sns.scatterplot(data=components, x='x', y='y', hue= 'clusters', style = 'labels', palette="deep", alpha=0.8)
+    plt.legend(title='Category', loc='upper left', bbox_to_anchor=(1, 1))
