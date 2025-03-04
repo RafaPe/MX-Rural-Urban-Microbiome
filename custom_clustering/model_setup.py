@@ -1,4 +1,8 @@
+import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
 from sklearn.metrics import davies_bouldin_score, silhouette_score, calinski_harabasz_score
 from sklearn.preprocessing import StandardScaler
@@ -10,6 +14,7 @@ from sklearn.cluster import HDBSCAN
 from sklearn.model_selection import StratifiedKFold, cross_val_score
 from sklearn.metrics.cluster import homogeneity_score, adjusted_mutual_info_score
 import optuna
+
 
 class CustomClustering(ClusterMixin, BaseEstimator):
     def __init__(self, algorithm='kmeans', filter_criteria='presence', filter_threshold=25, **kwargs):
@@ -214,3 +219,103 @@ def plot_clustering(data:pd.DataFrame, labels:list, clusters):
     plt.figure(figsize=(8, 6))
     sns.scatterplot(data=components, x='x', y='y', hue= 'clusters', style = 'labels', palette="deep", alpha=0.8)
     plt.legend(title='Category', loc='upper left', bbox_to_anchor=(1, 1))
+
+def get_urban_rural_counts(cluster: pd.DataFrame):
+    """Returns the count of urban and rural individuals in a cluster."""
+    urban_count = (cluster['Lifestyle'] == 'Urban').sum()
+    rural_count = (cluster['Lifestyle'] == 'Rural').sum()
+    return urban_count, rural_count
+
+def get_health_state(cluster: pd.DataFrame):
+    """Returns the count of healthy and diseased individuals in a cluster."""
+    healthy_count = (cluster['Health state'] == 'Healthy').sum()
+    diseased_count = (cluster['Health state'] == 'Diseased').sum()
+    return healthy_count, diseased_count
+
+def get_gender_counts(cluster: pd.DataFrame):
+    """Returns the count of male and female individuals in a cluster."""
+    male_count = (cluster['Gender'] == 'Male').sum()
+    female_count = (cluster['Gender'] == 'Female').sum()
+    return male_count, female_count
+
+def cluster_analysis(data: pd.DataFrame, clusters: np.array, metadata: pd.DataFrame):
+    """
+    Analyzes clusters based on urban/rural lifestyle, health state, gender, age, and BMI.
+    Generates visualizations for comparison.
+    """
+    
+    # Assign clusters to data
+    data['cluster'] = clusters
+    
+    # Create metadata subsets for each cluster
+    cluster_data = {
+        f'Cluster {i+1}': metadata[metadata['Lane'].isin(data[data['cluster'] == i].index)]
+        for i in range(2)
+    }
+    
+    # Store aggregated counts
+    lifestyle_counts = {}
+    health_counts = {}
+    gender_counts = {}
+    age_data = {}
+    bmi_data = {}
+    
+    for cluster_name, cluster_df in cluster_data.items():
+        lifestyle_counts[cluster_name] = dict(zip(['Urban', 'Rural'], get_urban_rural_counts(cluster_df)))
+        health_counts[cluster_name] = dict(zip(['Healthy', 'Unhealthy'], get_health_state(cluster_df)))
+        gender_counts[cluster_name] = dict(zip(['Male', 'Female'], get_gender_counts(cluster_df)))
+        age_data[cluster_name] = cluster_df['Age'].dropna().tolist()
+        bmi_data[cluster_name] = cluster_df['BMI'].dropna().tolist()
+    
+    # Compute relative distributions
+    relative_health = {
+        cluster: {state: count / sum(states.values()) for state, count in states.items()}
+        for cluster, states in health_counts.items()
+    }
+    relative_gender = {
+        cluster: {gender: count / sum(genders.values()) for gender, count in genders.items()}
+        for cluster, genders in gender_counts.items()
+    }
+    
+    # Convert data to DataFrames for visualization
+    df_lifestyle = pd.DataFrame(lifestyle_counts)
+    df_health = pd.DataFrame(relative_health)
+    df_gender = pd.DataFrame(relative_gender)
+    
+    # Create figure for visualizations
+    fig, axes = plt.subplots(5, len(df_lifestyle.columns), figsize=(12, 9))
+    
+    # Lifestyle Pie Charts
+    for i, cluster in enumerate(df_lifestyle.columns):
+        axes[0, i].pie(
+            df_lifestyle[cluster], labels=df_lifestyle.index, autopct="%1.1f%%", colors=["#4CAF50", "#FFC107"]
+        )
+        axes[0, i].set_title(cluster)
+    
+    # Age Distributions
+    for i, (cluster, ages) in enumerate(age_data.items()):
+        sns.kdeplot(ages, ax=axes[1, i], color="skyblue", fill=True, alpha=0.7)
+        axes[1, i].set_xlabel("Age")
+        axes[1, i].set_xlim(0, 90)
+        axes[1, i].axvline(np.mean(ages), color="red", linestyle="--", linewidth=2)
+    
+    # BMI Distributions
+    for i, (cluster, bmi) in enumerate(bmi_data.items()):
+        sns.kdeplot(bmi, ax=axes[2, i], color="skyblue", fill=True, alpha=0.7)
+        axes[2, i].set_xlabel("BMI")
+        axes[2, i].set_xlim(10, 45)
+        axes[2, i].axvline(np.mean(bmi), color="red", linestyle="--", linewidth=2)
+    
+    # Health State Bar Charts
+    for i, cluster in enumerate(df_health.columns):
+        axes[3, i].bar(df_health.index, df_health[cluster], color=["#4CAF50", "#FFA500"], alpha=0.8, edgecolor="black")
+        axes[3, i].set_ylim(0, 1)
+    
+    # Gender Distribution Bar Charts
+    for i, cluster in enumerate(df_gender.columns):
+        axes[4, i].bar(df_gender.index, df_gender[cluster], color=["#1E90FF", "#FF6347"], alpha=0.8, edgecolor="black")
+        axes[4, i].set_ylim(0, 1)
+    
+    # Adjust layout and show plot
+    plt.tight_layout()
+    plt.show()
