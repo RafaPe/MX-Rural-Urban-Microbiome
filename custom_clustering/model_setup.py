@@ -13,12 +13,13 @@ from sklearn.metrics import make_scorer
 from sklearn.cluster import HDBSCAN
 from sklearn.model_selection import StratifiedKFold, cross_val_score
 from sklearn.metrics.cluster import homogeneity_score, adjusted_mutual_info_score
+from sklearn.metrics import silhouette_score
 from scipy.stats import ks_2samp
 import optuna
 
 
 class CustomClustering(ClusterMixin, BaseEstimator):
-    def __init__(self, algorithm='kmeans', filter_criteria='presence', filter_threshold=25, **kwargs):
+    def __init__(self, algorithm='kmeans', filter_criteria=None, filter_threshold=25, **kwargs):
         """
         Parameters:
         -----------
@@ -57,9 +58,13 @@ class CustomClustering(ClusterMixin, BaseEstimator):
             binary_df = (X > 0).astype(int)
             presence = binary_df.sum(axis=0) > self.filter_threshold
             self.filtered_data_ = X.loc[:, presence]
+
+        elif self.filter_criteria == None:
+            self.filtered_data_ = self.data_
     
         else:
             raise ValueError("Invalid filter_criteria. Choose 'abundance' or 'presence'.")
+
 
         self.selected_features_ = self.filtered_data_.columns
     
@@ -108,6 +113,9 @@ class CustomClustering(ClusterMixin, BaseEstimator):
     
         # Scale the input data using the fitted scaler
         X_scaled = self.scaler_.transform(X_filtered)
+
+        if self.algorithm == 'hdbscan':
+            return self.model_.fit_predict(X_scaled)
         return self.model_.predict(X_scaled)
 
 
@@ -159,6 +167,66 @@ def optimization_function(trial, data, labels):
     mean_score = sum(scores) / len(scores)
 
     return mean_score
+
+def optimization_function2(trial, data):
+    algorithm = trial.suggest_categorical('algorithm', ['kmeans', 'gaussian_mixture', 'hdbscan'])
+    # filter_criteria = None
+    # filter_threshold = trial.suggest_float('filter_threshold', 0, 120, step=5) if filter_criteria == 'presence' else trial.suggest_float('filter_threshold', 0, 2.7, step=0.05)
+
+    # Convert to integer only if needed
+    # if filter_criteria == 'presence':
+    #     filter_threshold = int(filter_threshold)
+    selected_features = [trial.suggest_categorical(name, [True, False]) for name in list(data.columns)]
+
+        # List with names of selected features
+    selected_feature_names = [name for name, selected in zip(list(data.columns), selected_features) if selected]
+
+    if algorithm == 'hdbscan':
+        k = None
+    else:
+        k = trial.suggest_int('k', 2, 10)
+
+    if algorithm == 'kmeans':
+        model = CustomClustering(
+            algorithm=algorithm,
+            n_clusters=k
+        )
+    elif algorithm == 'gaussian_mixture':
+        model = CustomClustering(
+            algorithm=algorithm,
+            n_components=k,
+            covariance_type='diag',
+        )
+    elif algorithm == 'hdbscan':
+        model = CustomClustering(
+            algorithm=algorithm
+        )
+
+    model.fit(data[selected_feature_names])
+    score = silhouette_score(data[selected_feature_names], model.predict(data[selected_feature_names]))
+    return score
+
+   
+
+    # skf = StratifiedKFold(n_splits=5)
+
+    # scores = []
+
+    # for train_index, test_index in skf.split(data, labels):
+    #     X_train, X_test = data.iloc[train_index], data.iloc[test_index]
+    #     y_train = [labels[i] for i in train_index]
+    #     y_test = [labels[i] for i in test_index]
+        
+    #     model.fit(X_train, y_train)
+        
+    #     y_pred = model.predict(X_test)
+
+    #     score = adjusted_mutual_info_score(y_test, y_pred)
+    #     scores.append(score)
+
+    # mean_score = sum(scores) / len(scores)
+
+    # return mean_score
 
 def get_clustering_metrics(data, model, cluster_labels, true_labels):
     """
