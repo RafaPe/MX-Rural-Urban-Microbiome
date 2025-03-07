@@ -203,8 +203,11 @@ def optimization_function2(trial, data):
         )
 
     model.fit(data[selected_feature_names])
-    score = silhouette_score(data[selected_feature_names], model.predict(data[selected_feature_names]))
-    return score
+    try:
+        score = silhouette_score(data[selected_feature_names], model.predict(data[selected_feature_names]))
+        return score
+    except:
+        return float('-inf')
 
    
 
