@@ -250,7 +250,7 @@ def get_clustering_metrics(data, model, cluster_labels, true_labels):
             - Homogeneity score (float): Measures the extent to which clusters contain only members of a single class.
     """
     scaler = StandardScaler()
-    data = data[model.selected_features_]
+    # data = data[model.selected_features_]
     data = scaler.fit_transform(data)
     print(f'Silhoutte score: {silhouette_score(data, cluster_labels)}')
     print(f'Davies-Bouldin score: {davies_bouldin_score(data, cluster_labels)}')
