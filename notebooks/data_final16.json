@@ -1,0 +1,9 @@
+{
+    "algorithm": "kmeans",
+    "filter_criteria": "presence",
+    "min_threshold": 75.0,
+    "max_threshold": 100.0,
+    "apply_log_transform": false,
+    "scaler_method": "minmax",
+    "k": 2
+}

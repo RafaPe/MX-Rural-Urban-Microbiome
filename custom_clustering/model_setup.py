@@ -5,7 +5,7 @@ import seaborn as sns
 from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
 from sklearn.metrics import davies_bouldin_score, silhouette_score, calinski_harabasz_score
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
 from sklearn.mixture import GaussianMixture
 from sklearn.base import BaseEstimator, ClusterMixin
 from sklearn.preprocessing import LabelEncoder
@@ -19,27 +19,36 @@ import optuna
 
 
 class CustomClustering(ClusterMixin, BaseEstimator):
-    def __init__(self, algorithm='kmeans', filter_criteria=None, filter_threshold=25, **kwargs):
+    def __init__(self, algorithm='kmeans', scaler_=StandardScaler(), filter_criteria=None, 
+                 min_threshold=0, max_threshold=np.inf, **kwargs):
         """
+        Custom clustering class that applies filtering, scaling, and clustering.
+
         Parameters:
         -----------
-        k : int, default=2
-            The number of clusters to generate.
-
         algorithm : str, default='kmeans'
-            Clustering algorithm to use ('kmeans' or 'gaussian_mixture').
+            Clustering algorithm to use ('kmeans', 'gaussian_mixture', 'hdbscan').
 
-        filter_criteria : str, default='presence'
+        scaler_method : sklearn Scaler, default=StandardScaler()
+            Scaling method to normalize the data before clustering.
+
+        filter_criteria : str, default=None
             Feature filtering criterion ('abundance' or 'presence').
 
-        filter_threshold : int or float, default=25
-            Threshold for feature filtering. Interpreted as:
-            - Number of samples for 'presence'.
-            - Mean abundance multiplier for 'abundance'.
+        min_threshold : int or float, default=0
+            Lower bound for feature filtering.
+
+        max_threshold : int or float, default=np.inf
+            Upper bound for feature filtering.
+
+        **kwargs : additional parameters
+            Additional parameters for clustering algorithms.
         """
         self.algorithm = algorithm
+        self.scaler_ = scaler_
         self.filter_criteria = filter_criteria
-        self.filter_threshold = filter_threshold
+        self.min_threshold = min_threshold
+        self.max_threshold = max_threshold
         self.kwargs = kwargs
 
     def fit(self, X, y=None):
@@ -47,52 +56,49 @@ class CustomClustering(ClusterMixin, BaseEstimator):
         Fits the clustering algorithm to the data after applying the filtering criterion.
         """
         self.data_ = X.copy()
-    
-        # Feature filtering
+
+        # Feature filtering based on min/max threshold
         if self.filter_criteria == 'abundance':
             column_sums = X.sum()
-            threshold = column_sums.mean() * self.filter_threshold
-            self.filtered_data_ = X.loc[:, column_sums > threshold]
-    
+            threshold_lower = column_sums.mean() * self.min_threshold
+            threshold_upper = column_sums.mean() * self.max_threshold
+            valid_features = (column_sums >= threshold_lower) & (column_sums <= threshold_upper)
+            self.filtered_data_ = X.loc[:, valid_features]
+
         elif self.filter_criteria == 'presence':
             binary_df = (X > 0).astype(int)
-            presence = binary_df.sum(axis=0) > self.filter_threshold
-            self.filtered_data_ = X.loc[:, presence]
+            presence_counts = binary_df.sum(axis=0)
+            valid_features = (presence_counts >= self.min_threshold) & (presence_counts <= self.max_threshold)
+            self.filtered_data_ = X.loc[:, valid_features]
 
-        elif self.filter_criteria == None:
+        elif self.filter_criteria is None:
             self.filtered_data_ = self.data_
-    
+
         else:
             raise ValueError("Invalid filter_criteria. Choose 'abundance' or 'presence'.")
 
-
+        # Store selected feature names
         self.selected_features_ = self.filtered_data_.columns
-    
+        # print(self.filter_criteria)
+        # print(self.min_threshold, self.max_threshold)
+        # print(self.filtered_data_)
+
         # Scaling the data
-        self.scaler_ = StandardScaler()
         self.data_scaled_ = self.scaler_.fit_transform(self.filtered_data_)
-    
+
         # Clustering
         if self.algorithm == 'kmeans':
             self.model_ = KMeans(**self.kwargs)
-            self.labels_ = self.model_.fit_predict(self.data_scaled_)
-    
         elif self.algorithm == 'gaussian_mixture':
             self.model_ = GaussianMixture(**self.kwargs)
-            self.labels_ = self.model_.fit_predict(self.data_scaled_)
-
         elif self.algorithm == 'hdbscan':
             self.model_ = HDBSCAN(**self.kwargs)
-            self.labels_ = self.model_.fit_predict(self.data_scaled_)
-    
         else:
-            raise ValueError("Invalid algorithm. Choose 'kmeans' or 'gaussian_mixture'.")
-    
-        # Scoring metrics
-        # self.silhouette_score_ = silhouette_score(self.data_scaled_, self.labels_)
-        # self.davies_bouldin_score_ = davies_bouldin_score(self.data_scaled_, self.labels_)
-        # self.calinski_harabasz_score_ = calinski_harabasz_score(self.data_scaled_, self.labels_)
-    
+            raise ValueError("Invalid algorithm. Choose 'kmeans', 'gaussian_mixture', or 'hdbscan'.")
+
+        # Fit the model
+        self.labels_ = self.model_.fit_predict(self.data_scaled_)
+
         return self
 
     def predict(self, X):
@@ -101,23 +107,19 @@ class CustomClustering(ClusterMixin, BaseEstimator):
         """
         if not hasattr(self, "model_"):
             raise ValueError("The model has not been fitted yet.")
-    
         if not hasattr(self, "scaler_"):
             raise ValueError("Scaler has not been fitted yet. Fit the model first.")
-            
         if not hasattr(self, "selected_features_"):
             raise ValueError("No features were selected during fit. Ensure the model is fitted before predicting.")
-    
+
         # Filter data to match selected features
         X_filtered = X[self.selected_features_]
-    
+
         # Scale the input data using the fitted scaler
-        X_scaled = self.scaler_.transform(X_filtered)
+        X_scaled = self.scaler_.fit_transform(X_filtered)
 
-        if self.algorithm == 'hdbscan':
-            return self.model_.fit_predict(X_scaled)
-        return self.model_.predict(X_scaled)
-
+        # Predict cluster labels
+        return self.model_.fit_predict(X_scaled) if self.algorithm == 'hdbscan' else self.model_.predict(X_scaled)
 
 def optimization_function(trial, data, labels):
     algorithm = trial.suggest_categorical('algorithm', ['kmeans', 'gaussian_mixture'])
@@ -204,7 +206,9 @@ def optimization_function2(trial, data):
 
     model.fit(data[selected_feature_names])
     try:
-        score = silhouette_score(data[selected_feature_names], model.predict(data[selected_feature_names]))
+        #! MISSING NORMALIZATION
+        scaler = StandardScaler()
+        score = silhouette_score(scaler.fit_transform(data[selected_feature_names]), model.predict(data[selected_feature_names]))
         return score
     except:
         return float('-inf')
@@ -231,7 +235,7 @@ def optimization_function2(trial, data):
 
     # return mean_score
 
-def get_clustering_metrics(data, model, cluster_labels, true_labels):
+def get_clustering_metrics(data, model, cluster_labels, true_labels, scaler_):
     """
     Compute clustering evaluation metrics for the provided data and cluster assignments.
 
@@ -249,9 +253,9 @@ def get_clustering_metrics(data, model, cluster_labels, true_labels):
             - Calinski-Harabasz score (float): Measures the ratio of the sum of between-cluster dispersion and within-cluster dispersion.
             - Homogeneity score (float): Measures the extent to which clusters contain only members of a single class.
     """
-    scaler = StandardScaler()
+    # scaler = StandardScaler()
     # data = data[model.selected_features_]
-    data = scaler.fit_transform(data)
+    data = scaler_.fit_transform(data)
     print(f'Silhoutte score: {silhouette_score(data, cluster_labels)}')
     print(f'Davies-Bouldin score: {davies_bouldin_score(data, cluster_labels)}')
     print(f'Calinksi-Harabasz score: {calinski_harabasz_score(data, cluster_labels)}')
@@ -259,7 +263,7 @@ def get_clustering_metrics(data, model, cluster_labels, true_labels):
 
     return silhouette_score(data, cluster_labels), davies_bouldin_score(data, cluster_labels), calinski_harabasz_score(data, cluster_labels), homogeneity_score(true_labels, cluster_labels)
 
-def plot_clustering(data:pd.DataFrame, labels:list, clusters):
+def plot_clustering(data:pd.DataFrame, labels:list, clusters, scaler_):
     """
     Visualize clustering results in a 2D PCA plot with additional metadata information.
 
@@ -277,8 +281,8 @@ def plot_clustering(data:pd.DataFrame, labels:list, clusters):
     labels : list
         Cluster labels for each sample, as obtained from the clustering algorithm.
     """
-    scaler = StandardScaler()
-    data_scaled = scaler.fit_transform(data)
+    # scaler = StandardScaler()
+    data_scaled = scaler_.fit_transform(data)
     pca = PCA(n_components=2)
     components = pca.fit_transform(data.to_numpy())
     components = pd.DataFrame(components)
