@@ -53,8 +53,15 @@ imgs/*
 notebooks/*.csv
 
 custom_clustering/__pycache__/
+__pycache__/
+*.py[cod]
 
 notebooks/Untitled?.ipynb
 notebooks/Untitled.ipynb
 notebooks/Untitled-Copy1.ipynb
 notebooks/*.png
+.Rproj.user
+
+# Resultados regenerables de los análisis
+results/tmp/
+results/logs/

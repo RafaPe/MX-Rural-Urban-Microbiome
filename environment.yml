@@ -13,3 +13,5 @@ dependencies:
   - scipy
   - openpyxl
   - jupyterlab
+  - optuna
+  - pyyaml
