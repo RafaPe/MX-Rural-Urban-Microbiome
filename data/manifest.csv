@@ -7,6 +7,8 @@ processed/bracken_taxonomy.csv,processed,LATINBIOTA Bracken abundance table,deid
 processed/latinbiota_merge_metaphlan_data.csv,processed,LATINBIOTA MetaPhlAn genus abundance table,deidentified,02
 processed/latinbiota_pathabundance_unstratified.tsv,processed,LATINBIOTA HUMAnN pathway abundance table,deidentified,04
 processed/latinbiota_pathabundance_unstratified_relab.tsv,processed,LATINBIOTA relative pathway abundance table,deidentified,02
+processed/taxonomic_genus_clr_pseudocount_150.csv,processed,Frozen CLR genus matrix derived for the predictive comparison,deidentified,07
+processed/taxonomic_genus_relative_abundance.csv,processed,Frozen relative genus matrix derived for the predictive comparison,deidentified,07
 processed/gtdbtk_classification.tsv,processed,GTDB-Tk classification of LATINBIOTA bins,deidentified,03
 processed/bin_quality_final.tsv,processed,Quality metrics of LATINBIOTA bins,deidentified,03
 processed/taxonomy_table_otus.csv,processed,OTU taxonomy annotation,deidentified,03;04

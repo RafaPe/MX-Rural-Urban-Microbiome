@@ -58,8 +58,10 @@ tablas resumen necesarias para interpretar la tesis; temporales, modelos y logs
 se ignoran.
 
 Los experimentos aleatorios declaran una semilla en su bloque inicial de
-parámetros. Cambiar una semilla o un parámetro científico debe quedar registrado
-en la libreta y en el commit correspondiente.
+parámetros. Las libretas 04 y 07 usan `RANDOM_STATE = 42`; el resto de los
+experimentos no contiene operaciones estocásticas. Cambiar una semilla o un
+parámetro científico debe quedar registrado en la libreta y en el commit
+correspondiente.
 
 ## Privacidad
 

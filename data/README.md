@@ -20,3 +20,8 @@ La tabla `processed/latinbiota_sample_metadata.csv` se deriva del metadato
 privado. Conserva únicamente el identificador técnico de secuenciación y las
 categorías requeridas por los experimentos; elimina nombres de proveedor,
 identificadores públicos, edad y BMI exactos.
+
+Las matrices `processed/taxonomic_genus_clr_pseudocount_150.csv` y
+`processed/taxonomic_genus_relative_abundance.csv` son entradas congeladas de la
+libreta 07. Se conservan en `data/processed/` para que ese experimento no dependa
+de haber ejecutado previamente la libreta 02.
