@@ -1,0 +1,8 @@
+reference,representative,features,contribution,PC1,PC2
+1,Prevotella_copri,"Prevotella_copri, Phascolarctobacterium_succinatutens, Prevotella_stercorea",0.3886333215847524,-0.07391192464412301,0.3147213969406294
+2,Alistipes_putredinis,"Alistipes_putredinis, Alistipes_finegoldii, Akkermansia_muciniphila, Lawsonibacter_asaccharolyticus",0.2783851379798581,-0.12281243265828101,-0.1555727053215771
+3,Flavonifractor_plautii,"Flavonifractor_plautii, Ruminococcus_gnavus, Clostridium_bolteae, Eggerthella_lenta, Clostridium_symbiosum, Erysipelatoclostridium_ramosum, Hungatella_hathewayi",0.27115173061244596,0.1519233208728713,-0.11922840973957465
+4,Veillonella_parvula,"Veillonella_parvula, Klebsiella_pneumoniae, Haemophilus_parainfluenzae, Veillonella_atypica, Escherichia_coli, Klebsiella_variicola",0.2624233258295212,0.10665729163611554,0.1557660341934057
+5,Oscillibacter_sp_57_20,"Oscillibacter_sp_57_20, Coprococcus_eutactus, Ruminococcus_torques, Eubacterium_eligens, Firmicutes_bacterium_CAG_110, Oscillibacter_sp_CAG_241",0.2349868121399882,-0.17463599735973714,0.060350814780251054
+6,Barnesiella_intestinihominis,"Barnesiella_intestinihominis, Odoribacter_splanchnicus, Alistipes_shahii",0.2345465275133621,-0.14245797427834472,-0.09208855323501738
+7,Ruthenibacterium_lactatiformans,Ruthenibacterium_lactatiformans,0.19268858068652345,0.03229473895949129,-0.16039384172703217
