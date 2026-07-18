@@ -246,27 +246,28 @@ def cluster_analysis(data: pd.DataFrame, clusters: np.array, metadata: pd.DataFr
     """
     
     # Assign clusters to data
+    data = data.copy()
     data['cluster'] = clusters
     
     # Create metadata subsets for each cluster
     cluster_data = {
-        f'Cluster {i+1}': metadata[metadata['Lane'].isin(data[data['cluster'] == i].index)]
-        for i in range(2)
+        f'Cluster {cluster}': metadata[metadata['Lane'].isin(data[data['cluster'] == cluster].index)]
+        for cluster in sorted(pd.unique(clusters))
     }
     
     # Store aggregated counts
     lifestyle_counts = {}
     health_counts = {}
     gender_counts = {}
-    age_data = {}
-    bmi_data = {}
+    age_group_counts = {}
+    bmi_group_counts = {}
     
     for cluster_name, cluster_df in cluster_data.items():
         lifestyle_counts[cluster_name] = dict(zip(['Urban', 'Rural'], get_urban_rural_counts(cluster_df)))
         health_counts[cluster_name] = dict(zip(['Healthy', 'Unhealthy'], get_health_state(cluster_df)))
         gender_counts[cluster_name] = dict(zip(['Male', 'Female'], get_gender_counts(cluster_df)))
-        age_data[cluster_name] = cluster_df['Age'].dropna().tolist()
-        bmi_data[cluster_name] = cluster_df['BMI'].dropna().tolist()
+        age_group_counts[cluster_name] = cluster_df['Age group'].fillna('Unknown').value_counts(normalize=True)
+        bmi_group_counts[cluster_name] = cluster_df['BMI group'].fillna('Unknown').value_counts(normalize=True)
     
     # Compute relative distributions
     relative_health = {
@@ -293,19 +294,19 @@ def cluster_analysis(data: pd.DataFrame, clusters: np.array, metadata: pd.DataFr
         )
         axes[0, i].set_title(cluster)
     
-    # Age Distributions
-    for i, (cluster, ages) in enumerate(age_data.items()):
-        sns.kdeplot(ages, ax=axes[1, i], color="skyblue", fill=True, alpha=0.7)
-        axes[1, i].set_xlabel("Age")
-        axes[1, i].set_xlim(0, 90)
-        axes[1, i].axvline(np.mean(ages), color="red", linestyle="--", linewidth=2)
+    # Age-group distributions (the public metadata excludes exact ages).
+    for i, (cluster, counts) in enumerate(age_group_counts.items()):
+        axes[1, i].bar(counts.index, counts.values, color="skyblue", alpha=0.8)
+        axes[1, i].set_xlabel("Age group")
+        axes[1, i].set_ylim(0, 1)
+        axes[1, i].tick_params(axis="x", rotation=45)
     
-    # BMI Distributions
-    for i, (cluster, bmi) in enumerate(bmi_data.items()):
-        sns.kdeplot(bmi, ax=axes[2, i], color="skyblue", fill=True, alpha=0.7)
-        axes[2, i].set_xlabel("BMI")
-        axes[2, i].set_xlim(10, 45)
-        axes[2, i].axvline(np.mean(bmi), color="red", linestyle="--", linewidth=2)
+    # BMI-group distributions (the public metadata excludes exact BMI values).
+    for i, (cluster, counts) in enumerate(bmi_group_counts.items()):
+        axes[2, i].bar(counts.index, counts.values, color="skyblue", alpha=0.8)
+        axes[2, i].set_xlabel("BMI group")
+        axes[2, i].set_ylim(0, 1)
+        axes[2, i].tick_params(axis="x", rotation=45)
     
     # Health State Bar Charts
     for i, cluster in enumerate(df_health.columns):

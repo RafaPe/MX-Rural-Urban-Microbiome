@@ -1,15 +1,6 @@
-# Perfiles que sustituyen los clones de MetaPhlAn. Ajustar las rutas al validar
-# cada análisis contra sus resultados históricos.
-metaphlan_genus_percentage:
-  abundance_path: datasets/metaphlan_genus.tsv
-  metadata_path: datasets/metadata_LATINBIOTA_MEXICO.xlsx
-  metadata_sheet: Data
-  abundance_total: 100
-  metadata_fields: [Lifestyle, Age group, BMI]
-
+# Perfiles declarativos para experimentos que comparten los mismos insumos.
 metaphlan_genus_relative:
-  abundance_path: datasets/latinbiota_merge_metaphlan_data.csv
-  metadata_path: datasets/combinado_revisado_final.xlsx
-  metadata_sheet: combined_res
+  abundance_path: data/processed/latinbiota_merge_metaphlan_data.csv
+  metadata_path: data/processed/latinbiota_sample_metadata.csv
   abundance_total: 1
-  metadata_fields: [Lifestyle, Age group, BMI, Procedence]
+  metadata_fields: [Lifestyle, Age group, BMI group]

@@ -1,0 +1,14 @@
+path,category,source,sensitivity,used_by
+external/camda_2026_metadata.tsv,external,CAMDA 2026 public metadata,public,02;07
+external/camda_2026_taxonomy_relative_abundance.tsv,external,CAMDA 2026 public taxonomic profile,public,02;07
+external/gbm_reference_modules.xlsx,external,Published GBM supplementary table,public,06
+processed/latinbiota_sample_metadata.csv,processed,Deidentified derivative of private LATINBIOTA metadata,deidentified,01;03;04;05;06;07
+processed/bracken_taxonomy.csv,processed,LATINBIOTA Bracken abundance table,deidentified,01;04
+processed/latinbiota_merge_metaphlan_data.csv,processed,LATINBIOTA MetaPhlAn genus abundance table,deidentified,02
+processed/latinbiota_pathabundance_unstratified.tsv,processed,LATINBIOTA HUMAnN pathway abundance table,deidentified,04
+processed/latinbiota_pathabundance_unstratified_relab.tsv,processed,LATINBIOTA relative pathway abundance table,deidentified,02
+processed/gtdbtk_classification.tsv,processed,GTDB-Tk classification of LATINBIOTA bins,deidentified,03
+processed/bin_quality_final.tsv,processed,Quality metrics of LATINBIOTA bins,deidentified,03
+processed/taxonomy_table_otus.csv,processed,OTU taxonomy annotation,deidentified,03;04
+processed/rgi_annotation_all_bins.tsv,processed,RGI annotations of LATINBIOTA bins,deidentified,05
+processed/module_predictions_ko_cog/,processed,KO and COG module predictions by technical sample ID,deidentified,06
