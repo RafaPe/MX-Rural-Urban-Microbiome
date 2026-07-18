@@ -1,3 +1,1 @@
-"""Funciones compartidas para los análisis de la tesis."""
-
-from .paths import analysis_output_dirs
+"""Paquete de código compartido para los experimentos de la tesis."""

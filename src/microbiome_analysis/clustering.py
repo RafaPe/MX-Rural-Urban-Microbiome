@@ -8,13 +8,15 @@ from sklearn.metrics import davies_bouldin_score, silhouette_score, calinski_har
 from sklearn.preprocessing import StandardScaler
 from sklearn.mixture import GaussianMixture
 from sklearn.base import BaseEstimator, ClusterMixin
-from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import make_scorer
 from sklearn.cluster import HDBSCAN
-from sklearn.model_selection import StratifiedKFold, cross_val_score
+from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics.cluster import homogeneity_score, adjusted_mutual_info_score
 from scipy.stats import ks_2samp
-import optuna
+
+from .paths import DATASETS_DIR
+
+
+RANDOM_STATE = 42
 
 
 class CustomClustering(ClusterMixin, BaseEstimator):
@@ -127,7 +129,8 @@ def optimization_function(trial, data, labels):
             algorithm=algorithm,
             filter_criteria=filter_criteria,
             filter_threshold=filter_threshold,
-            n_clusters=k
+            n_clusters=k,
+            random_state=RANDOM_STATE,
         )
     else:
         model = CustomClustering(
@@ -136,11 +139,12 @@ def optimization_function(trial, data, labels):
             filter_threshold=filter_threshold,
             n_components=k,
             covariance_type='diag',
+            random_state=RANDOM_STATE,
         )
 
    
 
-    skf = StratifiedKFold(n_splits=5)
+    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=RANDOM_STATE)
 
     scores = []
 
@@ -209,7 +213,7 @@ def plot_clustering(data:pd.DataFrame, labels:list, clusters):
     scaler = StandardScaler()
     data_scaled = scaler.fit_transform(data)
     pca = PCA(n_components=2)
-    components = pca.fit_transform(data.to_numpy())
+    components = pca.fit_transform(data_scaled)
     components = pd.DataFrame(components)
     components['labels'] = labels
     components.columns = ['x', 'y', 'labels']
@@ -367,7 +371,7 @@ def get_feature_importance(data: pd.DataFrame, metadata: pd.DataFrame) -> pd.Dat
     })
     
     # Load taxonomy table and create species names
-    otus_df = pd.read_csv('../data/taxonomy_table_otus.csv', index_col=0)
+    otus_df = pd.read_csv(DATASETS_DIR / 'taxonomy_table_otus.csv', index_col=0)
     otus_df['SpeciesFull'] = otus_df['Genus'] + ' ' + otus_df['Species']
     
     # Map OTU to species

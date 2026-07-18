@@ -59,7 +59,6 @@ imgs/*
 
 notebooks/*.csv
 
-custom_clustering/__pycache__/
 __pycache__/
 *.py[cod]
 
