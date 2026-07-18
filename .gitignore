@@ -68,7 +68,14 @@ notebooks/Untitled.ipynb
 notebooks/Untitled-Copy1.ipynb
 notebooks/*.png
 .Rproj.user
+*.Rproj
+.RData
+.Rhistory
+Rplot*.png
+net.png
+scripts/*.png
 
 # Resultados regenerables de los análisis
 results/tmp/
 results/logs/
+results/models/
