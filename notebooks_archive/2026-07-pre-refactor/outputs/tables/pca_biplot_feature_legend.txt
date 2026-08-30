@@ -1,0 +1,5 @@
+Features:
+1. Paratractidigestivibacter, Ellagibacter (+3)
+2. Phocaeicola, Bacteroides (+5)
+3. Brotocaccenecus, Oscillibacter (+13)
+4. Dysosmobacter, GGB9707 (+1)

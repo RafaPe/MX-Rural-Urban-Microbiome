@@ -1,0 +1,301 @@
+Module	Taxon	Value	Coverage
+MGB029	Prevotella sp CAG 386	9.1541340102	1.0
+MGB036	Prevotella sp CAG 386	15.9071876764	1.0
+MGB043	Prevotella sp CAG 386	5.6521437573	1.0
+MGB047	Prevotella sp CAG 386	13.2437913741	1.0
+MGB043	Streptococcus anginosus group	3.4715158710500003	0.6666666666666666
+MGB007	Blautia wexlerae	20.18751836965	1.0
+MGB029	Blautia wexlerae	41.2601591146	1.0
+MGB036	Blautia wexlerae	31.8133386524	1.0
+MGB043	Blautia wexlerae	35.3963840931	1.0
+MGB006	Ruminococcus sp CAG 177	10.7221946396	1.0
+MGB029	Ruminococcus sp CAG 177	4.9376388172	1.0
+MGB036	Ruminococcus sp CAG 177	9.8901557853	1.0
+MGB047	Ruminococcus sp CAG 177	20.8363696279	1.0
+MGB032	Methanobrevibacter smithii	3.253517316	1.0
+MGB047	Methanobrevibacter smithii	3.9434789586	1.0
+MGB007	Gemmiger formicilis	9.8682172971	1.0
+MGB029	Gemmiger formicilis	12.1580510716	1.0
+MGB036	Gemmiger formicilis	25.7058826297	1.0
+MGB043	Gemmiger formicilis	20.503930055250002	0.6666666666666666
+MGB052	Gemmiger formicilis	19.47847406655	0.6666666666666666
+MGB029	Escherichia coli	0.8250825083	1.0
+MGB036	Escherichia coli	8.8492259689	1.0
+MGB039	Escherichia coli	6.6863102655	1.0
+MGB043	Escherichia coli	11.401243848	0.6666666666666666
+MGB029	Streptococcus lutetiensis	4.2102155554	1.0
+MGB031	Streptococcus lutetiensis	11.3802622875	1.0
+MGB033	Streptococcus lutetiensis	7.66648868045	0.6666666666666666
+MGB036	Streptococcus lutetiensis	9.3886530536	1.0
+MGB043	Streptococcus lutetiensis	6.4313456574	1.0
+MGB001	Bifidobacterium adolescentis	7.3959824897	1.0
+MGB005	Bifidobacterium adolescentis	8.5717826214	0.8
+MGB006	Bifidobacterium adolescentis	14.9846184411	1.0
+MGB022	Bifidobacterium adolescentis	7.3959824897	1.0
+MGB029	Bifidobacterium adolescentis	13.087516992	1.0
+MGB031	Bifidobacterium adolescentis	10.6826996816	1.0
+MGB036	Bifidobacterium adolescentis	4.6069926041	1.0
+MGB043	Bifidobacterium adolescentis	9.87462204775	0.6666666666666666
+MGB007	Clostridium disporicum	10.0587342801	1.0
+MGB029	Clostridium disporicum	49.0447138765	1.0
+MGB031	Clostridium disporicum	6.3492063492	1.0
+MGB032	Clostridium disporicum	15.0871784887	1.0
+MGB033	Clostridium disporicum	12.0292633356	0.6666666666666666
+MGB036	Clostridium disporicum	54.450903692	1.0
+MGB043	Clostridium disporicum	76.1340915322	1.0
+MGB052	Clostridium disporicum	65.89882224185	0.6666666666666666
+MGB006	Holdemanella biformis	76.8762161623	1.0
+MGB007	Holdemanella biformis	20.63657862135	1.0
+MGB029	Holdemanella biformis	48.6079475817	1.0
+MGB032	Holdemanella biformis	40.1321585512	1.0
+MGB054	Holdemanella biformis	47.0416669571	1.0
+MGB005	Streptococcus infantarius	9.9056361389	1.0
+MGB029	Streptococcus infantarius	5.1175961289	1.0
+MGB031	Streptococcus infantarius	9.8441499726	1.0
+MGB033	Streptococcus infantarius	19.0390402923	0.6666666666666666
+MGB036	Streptococcus infantarius	5.7473610306	1.0
+MGB043	Streptococcus infantarius	5.5026649006	1.0
+MGB005	Streptococcus equinus	61.9072123323	1.0
+MGB029	Streptococcus equinus	64.4429801961	1.0
+MGB031	Streptococcus equinus	40.5169800324	1.0
+MGB033	Streptococcus equinus	98.52509449015	0.6666666666666666
+MGB036	Streptococcus equinus	32.5426699013	1.0
+MGB043	Streptococcus equinus	120.835738522	1.0
+MGB006	Prevotella stercorea	1.6877637131	1.0
+MGB029	Prevotella stercorea	6.5572233942	1.0
+MGB036	Prevotella stercorea	0.8849557522	1.0
+MGB043	Prevotella stercorea	4.025301167449999	0.6666666666666666
+MGB036	Bacteroides sp CAG 545	0.8368200837	1.0
+MGB029	Clostridium sp CAG 492	2.1786492375	1.0
+MGB007	Faecalibacterium prausnitzii	0.56999544005	1.0
+MGB029	Faecalibacterium prausnitzii	5.3591178188	1.0
+MGB036	Faecalibacterium prausnitzii	3.9123880236	1.0
+MGB043	Faecalibacterium prausnitzii	7.785996379449999	0.6666666666666666
+MGB007	Clostridium sp CAG 253	0.89976201175	1.0
+MGB029	Clostridium sp CAG 253	1.6882194086	1.0
+MGB032	Clostridium sp CAG 253	0.65876152835	1.0
+MGB043	Clostridium sp CAG 253	1.9141874824	0.6666666666666666
+MGB007	Ruminococcus bromii	0.56527723405	1.0
+MGB029	Ruminococcus bromii	76.749885039	1.0
+MGB036	Ruminococcus bromii	48.2005308801	1.0
+MGB043	Ruminococcus bromii	76.66241778115	0.6666666666666666
+MGB007	Coprococcus eutactus	1.01598260765	1.0
+MGB029	Coprococcus eutactus	2.8731501958	1.0
+MGB007	Treponema succinifaciens	6.7368164712	1.0
+MGB029	Treponema succinifaciens	4.0868358144	1.0
+MGB036	Treponema succinifaciens	1.9436345967	1.0
+MGB047	Treponema succinifaciens	1.2944983819	1.0
+MGB007	Fusicatenibacter saccharivorans	14.7915994773	1.0
+MGB029	Fusicatenibacter saccharivorans	77.9297031526	1.0
+MGB032	Fusicatenibacter saccharivorans	11.1738980147	1.0
+MGB043	Fusicatenibacter saccharivorans	27.9871522905	1.0
+MGB006	Streptococcus viridans	0.8354218881	1.0
+MGB029	Streptococcus viridans	0.4688232536	1.0
+MGB031	Streptococcus viridans	3.300330033	1.0
+MGB043	Streptococcus viridans	3.2229816532	1.0
+MGB005	Blautia obeum	37.344221835249996	0.8
+MGB007	Blautia obeum	23.5923344024	1.0
+MGB029	Blautia obeum	71.87015374079999	1.0
+MGB032	Blautia obeum	5.89094264845	1.0
+MGB036	Blautia obeum	71.2111922805	1.0
+MGB038	Blautia obeum	6.9081132702	1.0
+MGB043	Blautia obeum	71.9836755512	1.0
+MGB054	Blautia obeum	20.1742407258	1.0
+MGB005	Lactobacillus ruminis	5.9425885513	1.0
+MGB029	Lactobacillus ruminis	15.8627021836	1.0
+MGB036	Lactobacillus ruminis	4.7550574044	1.0
+MGB043	Lactobacillus ruminis	16.8797283748	1.0
+MGB006	Ruminococcus torques	26.8689451723	1.0
+MGB007	Ruminococcus torques	14.91875261475	1.0
+MGB029	Ruminococcus torques	35.324356758	1.0
+MGB036	Ruminococcus torques	37.1664957544	1.0
+MGB043	Ruminococcus torques	28.6551440164	1.0
+MGB029	Clostridium sp CAG 594	25.0238353424	1.0
+MGB043	Clostridium sp CAG 594	32.1646512534	0.6666666666666666
+MGB007	Catenibacterium mitsuokai	20.15014341845	1.0
+MGB029	Catenibacterium mitsuokai	49.1232557607	1.0
+MGB032	Catenibacterium mitsuokai	33.68299666765	1.0
+MGB036	Catenibacterium mitsuokai	39.0068857254	1.0
+MGB043	Catenibacterium mitsuokai	36.919610923549996	0.6666666666666666
+MGB029	Paraclostridium bifermentans	2.4508205341	1.0
+MGB043	Paraclostridium bifermentans	6.6861469749	0.6666666666666666
+MGB007	Roseburia sp CAG 471	16.81881088725	1.0
+MGB029	Roseburia sp CAG 471	13.3044745837	1.0
+MGB043	Roseburia sp CAG 471	29.6511456347	0.6666666666666666
+MGB029	Clostridium sp CAG 245	7.8103117141	1.0
+MGB036	Clostridium sp CAG 245	1.0070493454	1.0
+MGB043	Clostridium sp CAG 245	5.7529864428	1.0
+MGB007	Roseburia hominis	24.17406095455	1.0
+MGB036	Roseburia hominis	40.0981265377	1.0
+MGB043	Roseburia hominis	55.24278874065	0.6666666666666666
+MGB007	Subdoligranulum sp APC924 74	4.18906668105	1.0
+MGB029	Subdoligranulum sp APC924 74	19.878045602	1.0
+MGB036	Subdoligranulum sp APC924 74	12.934326497	1.0
+MGB043	Subdoligranulum sp APC924 74	4.7577933685	1.0
+MGB029	Collinsella sp CAG 289	24.6541060286	1.0
+MGB033	Collinsella sp CAG 289	8.5257274222	0.6666666666666666
+MGB036	Collinsella sp CAG 289	13.1115770192	1.0
+MGB043	Collinsella sp CAG 289	69.1366634953	0.6666666666666666
+MGB007	Firmicutes bacterium CAG 194	4.8842126631	1.0
+MGB029	Firmicutes bacterium CAG 194	6.5269193232	1.0
+MGB031	Firmicutes bacterium CAG 194	6.4102564103	1.0
+MGB043	Firmicutes bacterium CAG 194	8.1446303029	1.0
+MGB052	Firmicutes bacterium CAG 194	7.8346490111	1.0
+MGB029	Firmicutes bacterium CAG 41	0.8680555556	1.0
+MGB036	Firmicutes bacterium CAG 41	3.8647342995	1.0
+MGB043	Firmicutes bacterium CAG 41	1.2163734905	0.6666666666666666
+MGB007	Roseburia inulinivorans	0.5651315608	1.0
+MGB029	Roseburia inulinivorans	1.6435546539	1.0
+MGB029	Clostridium sp CAG 568	1.6522098306	1.0
+MGB005	Clostridium sp 44 14	9.952831558125	0.8
+MGB029	Clostridium sp 44 14	19.0844757806	1.0
+MGB032	Clostridium sp 44 14	5.1463509047	1.0
+MGB043	Clostridium sp 44 14	13.3606779103	1.0
+MGB007	Clostridium sp CAG 221	30.1584661046	1.0
+MGB029	Clostridium sp CAG 221	155.48754986490002	1.0
+MGB031	Clostridium sp CAG 221	81.3975181899	1.0
+MGB032	Clostridium sp CAG 221	36.9412993573	1.0
+MGB035	Clostridium sp CAG 221	131.8477958782	0.6666666666666666
+MGB036	Clostridium sp CAG 221	103.0367998756	1.0
+MGB043	Clostridium sp CAG 221	147.34748183745	0.6666666666666666
+MGB052	Clostridium sp CAG 221	85.33391933979999	0.6666666666666666
+MGB029	Clostridium sp CAG 217	15.5300964702	1.0
+MGB038	Clostridium sp CAG 217	6.9431064012	1.0
+MGB005	Eubacterium eligens	4.784209205950001	0.8
+MGB007	Eubacterium eligens	3.40483272805	1.0
+MGB029	Eubacterium eligens	14.0344338157	1.0
+MGB032	Eubacterium eligens	1.32275132275	1.0
+MGB036	Eubacterium eligens	3.6529680365	1.0
+MGB043	Eubacterium eligens	5.1840017244	1.0
+MGB029	Slackia isoflavoniconvertens	65.7433703567	1.0
+MGB036	Slackia isoflavoniconvertens	27.6727758798	1.0
+MGB036	Firmicutes bacterium CAG 176	4.7792837773	1.0
+MGB007	Dialister sp CAG 486	2.94255711845	1.0
+MGB029	Dialister sp CAG 486	5.7543669961	1.0
+MGB036	Dialister sp CAG 486	4.7429116582	1.0
+MGB001	Enterococcus faecium	24.4617734633	1.0
+MGB029	Enterococcus faecium	32.3863427183	1.0
+MGB033	Enterococcus faecium	7.6108638508	0.6666666666666666
+MGB043	Enterococcus faecium	13.4399671661	1.0
+MGB007	Clostridium sp AF36 4	0.564206879	1.0
+MGB029	Clostridium sp AF36 4	3.2590743714	1.0
+MGB032	Clostridium sp AF36 4	1.31752305665	1.0
+MGB036	Clostridium sp AF36 4	0.9689922481	1.0
+MGB029	Prevotella sp CAG 732	190.6109732208	1.0
+MGB036	Prevotella sp CAG 732	3.4321125604	1.0
+MGB043	Prevotella sp CAG 732	978.11034918875	0.6666666666666666
+MGB047	Prevotella sp CAG 732	97.4883139983	1.0
+MGB029	Prevotella sp 885	3.6616761435	1.0
+MGB007	Clostridium sp CAG 510	4.3337298735	1.0
+MGB029	Clostridium sp CAG 510	9.1256246893	1.0
+MGB043	Clostridium sp CAG 510	16.277384093050003	0.6666666666666666
+MGB052	Clostridium sp CAG 510	9.8954249202	0.6666666666666666
+MGB005	Streptococcus salivarius	98.6122927167	1.0
+MGB029	Streptococcus salivarius	187.2609917485	1.0
+MGB031	Streptococcus salivarius	19.3967968403	1.0
+MGB033	Streptococcus salivarius	79.61727791895001	0.6666666666666666
+MGB036	Streptococcus salivarius	31.5471708725	1.0
+MGB043	Streptococcus salivarius	76.4284149375	1.0
+MGB029	Eggerthella sp CAG 209	0.8254235917	1.0
+MGB033	Eggerthella sp CAG 209	1.7078429155000001	0.6666666666666666
+MGB036	Eggerthella sp CAG 209	1.7725984707	1.0
+MGB029	Firmicutes bacterium CAG 240	2.0559253538	1.0
+MGB006	Streptococcus milleri	1.6191209476	1.0
+MGB029	Streptococcus milleri	4.2097398725	1.0
+MGB036	Streptococcus milleri	3.8314176245	1.0
+MGB043	Clostridium sp CAG 632	19.9031684859	0.6666666666666666
+MGB052	Clostridium sp CAG 632	3.8743019088	1.0
+MGB029	Eubacterium sp CAG 581	0.4334633723	1.0
+MGB005	Streptococcus vestibularis	56.9439597462	1.0
+MGB029	Streptococcus vestibularis	10.4263436713	1.0
+MGB031	Streptococcus vestibularis	35.4416477022	1.0
+MGB033	Streptococcus vestibularis	20.78259758505	0.6666666666666666
+MGB036	Streptococcus vestibularis	50.5160025297	1.0
+MGB043	Streptococcus vestibularis	76.417889469	1.0
+MGB007	Intestinibacter bartlettii	3.88689113785	1.0
+MGB029	Intestinibacter bartlettii	25.2574028886	1.0
+MGB032	Intestinibacter bartlettii	10.697471407750001	1.0
+MGB043	Intestinibacter bartlettii	34.69209083425	0.6666666666666666
+MGB052	Intestinibacter bartlettii	4.377373528350001	0.6666666666666666
+MGB007	Blautia sp AF19 10LB	2.264429937	1.0
+MGB029	Blautia sp AF19 10LB	20.4118286163	1.0
+MGB043	Blautia sp AF19 10LB	15.1006998166	1.0
+MGB029	Prevotella sp CAG 5226	2.0327504584	1.0
+MGB036	Prevotella sp CAG 5226	3.2577201382	1.0
+MGB029	Faecalibacterium sp CAG 74	9.1419637781	1.0
+MGB036	Faecalibacterium sp CAG 74	4.8891596211	1.0
+MGB043	Faecalibacterium sp CAG 74	1.41072504825	0.6666666666666666
+MGB015	Clostridium ventriculi	112.8255583365	1.0
+MGB029	Clostridium ventriculi	96.3163041275	1.0
+MGB036	Clostridium ventriculi	154.5206120313	1.0
+MGB043	Clostridium ventriculi	101.2224912776	0.6666666666666666
+MGB052	Clostridium ventriculi	174.9437209779	0.6666666666666666
+MGB005	Streptococcus pneumoniae	174.7637661824	1.0
+MGB006	Streptococcus pneumoniae	1.6708437761	1.0
+MGB029	Streptococcus pneumoniae	159.2891483014	1.0
+MGB031	Streptococcus pneumoniae	318.584204659	1.0
+MGB033	Streptococcus pneumoniae	325.0803778639	0.6666666666666666
+MGB036	Streptococcus pneumoniae	272.7083557234	1.0
+MGB043	Streptococcus pneumoniae	251.8411566716	1.0
+MGB006	Blautia sp	20.4695907934	1.0
+MGB007	Blautia sp	4.7618493425	1.0
+MGB029	Blautia sp	23.0909291003	1.0
+MGB032	Blautia sp	4.6142108188	1.0
+MGB038	Blautia sp	19.469075477	1.0
+MGB039	Blautia sp	22.7339456854	1.0
+MGB043	Blautia sp	20.8374995894	1.0
+MGB007	Firmicutes bacterium CAG 65 45 313	3.51808355465	1.0
+MGB029	Firmicutes bacterium CAG 65 45 313	18.7039047591	1.0
+MGB043	Firmicutes bacterium CAG 65 45 313	12.3506325593	1.0
+MGB052	Firmicutes bacterium CAG 65 45 313	8.335413600199999	0.6666666666666666
+MGB029	Prevotella copri	363.7758074486	1.0
+MGB036	Prevotella copri	14.1270640841	1.0
+MGB043	Prevotella copri	20.7206077587	1.0
+MGB047	Prevotella copri	25.7641175592	1.0
+MGB029	Blautia sp CAG 52	77.62252197699999	1.0
+MGB043	Blautia sp CAG 52	44.172819851049994	0.6666666666666666
+MGB006	Dorea formicigenerans	6.7172060907	1.0
+MGB007	Dorea formicigenerans	9.7883265858	1.0
+MGB029	Dorea formicigenerans	49.6697488097	1.0
+MGB032	Dorea formicigenerans	7.9168126409	1.0
+MGB036	Dorea formicigenerans	28.6724767435	1.0
+MGB043	Dorea formicigenerans	22.88273889955	0.6666666666666666
+MGB029	Eubacterium sp CAG 251	1.3736263736	1.0
+MGB036	Eubacterium sp CAG 251	3.8872691934	1.0
+MGB038	Eubacterium sp CAG 251	1.1574074074	1.0
+MGB007	Eubacterium rectale	0.2265530432	1.0
+MGB029	Eubacterium rectale	0.8140056682	1.0
+MGB036	Eubacterium rectale	1.9379844961	1.0
+MGB006	Prevotella sp CAG 1092	6.7110315167	1.0
+MGB029	Prevotella sp CAG 1092	13.9950742019	1.0
+MGB036	Prevotella sp CAG 1092	6.3529336474	1.0
+MGB047	Prevotella sp CAG 1092	7.8466666833	1.0
+MGB052	Prevotella sp CAG 1092	77.7777993945	0.6666666666666666
+MGB007	Firmicutes bacterium CAG 791	9.73232319645	1.0
+MGB043	Firmicutes bacterium CAG 791	17.5334148366	1.0
+MGB007	Eubacterium hallii	10.2495384848	1.0
+MGB029	Eubacterium hallii	23.517971857200003	1.0
+MGB031	Eubacterium hallii	11.2788304756	1.0
+MGB032	Eubacterium hallii	9.8229014926	1.0
+MGB036	Eubacterium hallii	13.317027443	1.0
+MGB043	Eubacterium hallii	11.8935490259	1.0
+MGB029	Ruminococcus sp CAG 488	3.450648382	1.0
+MGB036	Ruminococcus sp CAG 488	4.7747208647	1.0
+MGB029	Rothia mucilaginosa	1.6191950115	1.0
+MGB036	Rothia mucilaginosa	0.946969697	1.0
+MGB007	Roseburia faecis	1.2462151513	1.0
+MGB029	Roseburia faecis	2.8665028665	1.0
+MGB036	Roseburia faecis	3.8759689922	1.0
+MGB043	Roseburia faecis	3.81668464135	0.6666666666666666
+MGB006	Eubacterium sp CAG 180	13.5475675082	1.0
+MGB029	Eubacterium sp CAG 180	14.2590425865	1.0
+MGB033	Eubacterium sp CAG 180	22.67364657545	0.6666666666666666
+MGB038	Eubacterium sp CAG 180	8.0655206776	1.0
+MGB006	Dorea longicatena	28.5667868985	1.0
+MGB007	Dorea longicatena	5.2901732993	1.0
+MGB029	Dorea longicatena	18.2417327773	1.0
+MGB032	Dorea longicatena	7.14719544735	1.0
+MGB036	Dorea longicatena	21.7659685669	1.0
+MGB038	Dorea longicatena	13.8741972821	1.0
+MGB039	Dorea longicatena	7.2305177635	1.0
+MGB043	Dorea longicatena	14.1071632038	1.0

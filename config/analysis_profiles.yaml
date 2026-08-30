@@ -1,0 +1,6 @@
+# Perfiles declarativos para experimentos que comparten los mismos insumos.
+metaphlan_genus_relative:
+  abundance_path: data/processed/latinbiota_merge_metaphlan_data.csv
+  metadata_path: data/processed/latinbiota_sample_metadata.csv
+  abundance_total: 1
+  metadata_fields: [Lifestyle, Age group, BMI group]

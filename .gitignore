@@ -43,18 +43,38 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,jupyternotebooks
 
-#Ignore data files
+# Datos locales o sensibles. Los insumos publicables viven en data/external y
+# data/processed; el antiguo datasets/ se conserva sólo como ubicación local.
+datasets/
 data/*
-!data/.gitkeep
+!data/README.md
+!data/manifest.csv
+!data/external/
+!data/external/**
+!data/processed/
+!data/processed/**
 
 #Ignore images
 imgs/*
 
 notebooks/*.csv
 
-custom_clustering/__pycache__/
+__pycache__/
+*.py[cod]
 
 notebooks/Untitled?.ipynb
 notebooks/Untitled.ipynb
 notebooks/Untitled-Copy1.ipynb
 notebooks/*.png
+.Rproj.user
+*.Rproj
+.RData
+.Rhistory
+Rplot*.png
+net.png
+scripts/*.png
+
+# Resultados regenerables de los análisis
+results/tmp/
+results/logs/
+results/models/

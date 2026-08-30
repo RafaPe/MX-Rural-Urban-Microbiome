@@ -1,64 +1,72 @@
-# Gut Microbiome Population Identification  
+# Experimentos de microbioma intestinal
 
-This project focuses on distinguishing rural and urban populations in Mexico based on gut microbiome samples. By analyzing microbiome data at the taxonomic and functional levels, the aim is to identify unique characteristics of each population.  
+Este repositorio reúne experimentos de tesis para caracterizar y comparar
+poblaciones rurales, urbanas y conjuntos públicos internacionales mediante
+abundancias taxonómicas, rutas funcionales, genes de resistencia y módulos del
+microbioma intestinal.
 
-## Project Overview  
-- *Objective:* To characterize individuals into rural or urban populations based on their gut microbiome's taxonomic composition and functional pathways.  
-- *Data Sources:* Microbiome samples processed through bioinformatics pipelines.  
-- *Applications:* Understanding the relationship between microbiome composition and environmental or lifestyle factors, aiding in population-specific health research.  
+No es un pipeline de producción: cada libreta representa un experimento y puede
+abrirse desde la raíz del repositorio. El código reutilizable se concentra en
+`src/`, los insumos permitidos en `data/` y las salidas en `results/`.
 
----
+## Experimentos
 
-## Data Overview  
-### Dimensions of Processed Data  
-This dataset is part of a project conducted under the **Latin Biota Initiative**, which aims to investigate the gut microbiome of diverse populations in Latin America. The analyzed data provides insights into both taxonomic diversity and functional capabilities.
+| Libreta | Experimento |
+| --- | --- |
+| `01_otu_eda.ipynb` | Comparación PCA de abundancias OTU crudas, escaladas y CLR |
+| `02_clr_pca_exploration.ipynb` | PCA composicional de taxonomía, funciones y CAMDA 2026 |
+| `03_bin_exploration.ipynb` | Calidad y clasificación taxonómica de bins |
+| `04_clustering_experiments.ipynb` | Clustering y optimización de representaciones taxonómicas y funcionales |
+| `05_resistance_genes_by_group.ipynb` | Comparación de genes de resistencia entre estilos de vida |
+| `06_gbm_analysis.ipynb` | Análisis de módulos del microbioma intestinal |
+| `07_taxonomic_indices_predictive_comparison.ipynb` | Evaluación predictiva de índices PCA con y sin CLR |
 
+La libreta 04 contiene búsquedas de Optuna extensas y puede tardar varios
+minutos u horas según los parámetros y el equipo.
 
-- *Samples:* Total number of samples analyzed (208 samples; 123 from rural and 85 from urban populations).  
-- *Features:*  
-  - **Taxonomic Features:** The dataset includes **13,529 OTUs** (Operational Taxonomic Units) identified through the Kraken and Bracken tools. These OTUs represent different microbial species and are used to characterize the microbiome diversity of the populations. [Clic to see the data](datasets/bracken_taxonomy.csv)
+## Instalación
 
+```bash
+conda env create -f environment.yml
+conda activate clustering-env
+jupyter lab
+```
 
-  - **Functional Pathways:** Functional pathways were derived using the HUMAnN 3.0 pipeline, resulting in **532 functional pathways**. These pathways highlight the biochemical processes present in the gut microbiome of the analyzed samples. 
-  The HUMAnN 3.0 pipeline calculates pathway abundances based on the abundances of component reactions, with each reaction's abundance determined by summing the abundances of genes catalyzing the reaction. Pathway abundance is computed both at the community level and for individual species (plus an "unclassified" stratum), leveraging gene abundances and pathway structures. [Clic to see the data](datasets/latinbiota_pathabundance_unstratified.tsv)
+Abre Jupyter desde la raíz del repositorio. Las libretas también detectan cuando
+se ejecutan desde `notebooks/` y resuelven las rutas del proyecto.
 
+## Estructura
 
+```text
+config/       parámetros declarativos de análisis
+data/         insumos externos públicos y tablas procesadas desidentificadas
+notebooks/    experimentos numerados
+results/      figuras y tablas finales
+scripts/      análisis auxiliares que no viven en una libreta
+src/          funciones compartidas por los experimentos
+```
 
+Consulta `data/README.md` y `data/manifest.csv` antes de añadir un nuevo
+dataset. Los archivos crudos, encuestas, metadatos completos y cualquier dato
+potencialmente identificable no deben versionarse.
 
-### Problem Task  
-- *Task Type:* Clusters
-- *Goal:* Form and characterize meaninful clusters    
+## Resultados y reproducibilidad
 
----
+Cada experimento escribe en una subcarpeta con su nombre dentro de
+`results/figures/` o `results/tables/`. Se conservan las figuras finales y las
+tablas resumen necesarias para interpretar la tesis; temporales, modelos y logs
+se ignoran.
 
-## Data Preprocessing  
-### Workflow  
-1. *Data Cleaning:*  
-   - Software: [Kneaddata](https://huttenhower.sph.harvard.edu/kneaddata/)  
-   - Steps: Removal of host contamination and low-quality reads.  
+Los experimentos aleatorios declaran una semilla en su bloque inicial de
+parámetros. Las libretas 04 y 07 usan `RANDOM_STATE = 42`; el resto de los
+experimentos no contiene operaciones estocásticas. Cambiar una semilla o un
+parámetro científico debe quedar registrado en la libreta y en el commit
+correspondiente.
 
-2. *Taxonomic Assignment:*  
-   - Software: [Kraken2](https://ccb.jhu.edu/software/kraken2/) and [Bracken](https://ccb.jhu.edu/software/bracken/).  
-   - Output: OTUs assigned to taxonomic categories.  
+## Privacidad
 
-3. *Functional Pathway Analysis:*  
-   - Software: [HUMAnN 3.0](https://huttenhower.sph.harvard.edu/humann/).  
-   - Output: Abundances of functional pathways in the microbiome.  
-
----
-
-## Analytical Objective  
-The key focus is to utilize machine learning techniques to:  
-1. *Identify:* Which taxonomic and/or functional features are most important for the clusters separation
-2. *Characterize:* Unique microbiome traits associated with rural and urban populations.  
-
----
-
-
-For Elvia and Isaac
-
-Asignación taxonómica Kracken/Bracken [Aquí](datasets/bracken_taxonomy.csv)
-
-Correspondencia de las especies a los OTUs [Aquí](datasets/taxonomy_table_otus.csv)
-
-Metadatos de las muestras [Aquí](datasets/metadata_LATINBIOTA_MEXICO.xlsx)
+Los identificadores de las tablas públicas son identificadores técnicos de
+secuenciación. Aun así, antes de publicar una versión del repositorio debe
+revisarse la autorización de redistribución de cada entrada del manifiesto. La
+eliminación de un archivo en la rama actual no lo elimina automáticamente del
+historial anterior de Git.
