@@ -1,9 +1,0 @@
-{
-    "algorithm": "kmeans",
-    "filter_criteria": "abundance",
-    "min_threshold": 2.0500000000000003,
-    "max_threshold": 2.15,
-    "apply_log_transform": false,
-    "scaler_method": "robust",
-    "k": 2
-}

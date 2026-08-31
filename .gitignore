@@ -78,3 +78,6 @@ scripts/*.png
 results/tmp/
 results/logs/
 results/models/
+
+# Historical notebooks are kept locally only.
+notebooks_archive/
