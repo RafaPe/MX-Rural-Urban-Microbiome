@@ -1,30 +1,48 @@
-# Experimentos de microbioma intestinal
+# Gut Microbiome Thesis Analyses
 
-Este repositorio reúne experimentos de tesis para caracterizar y comparar
-poblaciones rurales, urbanas y conjuntos públicos internacionales mediante
-abundancias taxonómicas, rutas funcionales, genes de resistencia y módulos del
-microbioma intestinal.
+This repository contains the analysis code, notebooks, and selected derived
+results for a master's thesis investigating variation in gut microbiome
+composition across rural, urban, and publicly available international cohorts.
 
-No es un pipeline de producción: cada libreta representa un experimento y puede
-abrirse desde la raíz del repositorio. El código reutilizable se concentra en
-`src/`, los insumos permitidos en `data/` y las salidas en `results/`.
+The project covers taxonomic composition, functional pathways, antimicrobial
+resistance genes, genome bins, gut-brain modules (GBMs), alpha and beta
+diversity, clustering, co-occurrence networks, and predictive taxonomic
+indices. It is a research repository rather than a production pipeline: each
+notebook documents a self-contained experiment, while reusable utilities live
+in `src/`.
 
-## Experimentos
+## Repository layout
 
-| Libreta | Experimento |
+```text
+config/       declarative analysis profiles and shared parameters
+data/         dataset documentation and local input locations
+notebooks/    numbered analysis notebooks
+results/      selected final figures and summary tables
+scripts/      standalone R analyses
+src/          shared Python utilities
+```
+
+## Analyses
+
+| Component | Description |
 | --- | --- |
-| `01_otu_eda.ipynb` | Comparación PCA de abundancias OTU crudas, escaladas y CLR |
-| `02_clr_pca_exploration.ipynb` | PCA composicional de taxonomía, funciones y CAMDA 2026 |
-| `03_bin_exploration.ipynb` | Calidad y clasificación taxonómica de bins |
-| `04_clustering_experiments.ipynb` | Clustering y optimización de representaciones taxonómicas y funcionales |
-| `05_resistance_genes_by_group.ipynb` | Comparación de genes de resistencia entre estilos de vida |
-| `06_gbm_analysis.ipynb` | Análisis de módulos del microbioma intestinal |
-| `07_taxonomic_indices_predictive_comparison.ipynb` | Evaluación predictiva de índices PCA con y sin CLR |
+| `01_otu_eda.ipynb` | Exploratory PCA comparison of raw, scaled, and CLR-transformed taxonomic abundances |
+| `02_clr_pca_exploration.ipynb` | CLR/PCA exploration of taxonomic and functional profiles, including CAMDA 2026 data |
+| `03_bin_exploration.ipynb` | Quality assessment and taxonomic characterization of genome bins |
+| `04_clustering_experiments.ipynb` | Clustering and representation optimization for taxonomic and functional profiles |
+| `05_resistance_genes_by_group.ipynb` | Comparison of antimicrobial-resistance genes across lifestyle groups |
+| `06_gbm_analysis.ipynb` | Gut-brain module analysis |
+| `07_taxonomic_indices_predictive_comparison*.ipynb` | Predictive comparison of taxonomic indices, including the BHC variant |
+| `scripts/alpha_diversity.R` | Alpha-diversity analysis by lifestyle and age group |
+| `scripts/beta_diversity.R` | Beta-diversity ordination and visualization workflow |
+| `scripts/networks.R` | Taxonomic co-occurrence network analysis |
 
-La libreta 04 contiene búsquedas de Optuna extensas y puede tardar varios
-minutos u horas según los parámetros y el equipo.
+Notebook 04 includes extensive Optuna searches and can take minutes or hours,
+depending on the selected parameters and available hardware.
 
-## Instalación
+## Getting started
+
+Create the Python environment from the repository root:
 
 ```bash
 conda env create -f environment.yml
@@ -32,41 +50,41 @@ conda activate clustering-env
 jupyter lab
 ```
 
-Abre Jupyter desde la raíz del repositorio. Las libretas también detectan cuando
-se ejecutan desde `notebooks/` y resuelven las rutas del proyecto.
+Launch Jupyter from the repository root. The notebooks resolve project paths
+when they are started from either the root directory or `notebooks/`. The R
+scripts require a local R installation and the packages listed at the top of
+each script.
 
-## Estructura
+## Data access
 
-```text
-config/       parámetros declarativos de análisis
-data/         insumos externos públicos y tablas procesadas desidentificadas
-notebooks/    experimentos numerados
-results/      figuras y tablas finales
-scripts/      análisis auxiliares que no viven en una libreta
-src/          funciones compartidas por los experimentos
-```
+The code and selected derived results are publicly available. Taxonomic and
+functional datasets—including input profiles, pathway tables, GBM modules,
+genome-bin classifications, and resistance annotations—are restricted and are
+intentionally not distributed in this repository.
 
-Consulta `data/README.md` y `data/manifest.csv` antes de añadir un nuevo
-dataset. Los archivos crudos, encuestas, metadatos completos y cualquier dato
-potencialmente identificable no deben versionarse.
+Restricted datasets are available upon request from the repository maintainer,
+subject to the appropriate authorization and data-use conditions. The expected
+local paths and the analyses that consume each dataset are documented in
+[`data/manifest.csv`](data/manifest.csv). Once access is granted, place the
+files in the documented locations and keep them out of version control.
 
-## Resultados y reproducibilidad
+Only dataset documentation, public CAMDA metadata, and a deidentified sample
+metadata table are versioned under `data/`. Do not commit restricted inputs,
+raw data, surveys, full metadata, identifiable information, or regenerable
+intermediate files.
 
-Cada experimento escribe en una subcarpeta con su nombre dentro de
-`results/figures/` o `results/tables/`. Se conservan las figuras finales y las
-tablas resumen necesarias para interpretar la tesis; temporales, modelos y logs
-se ignoran.
+## Results and reproducibility
 
-Los experimentos aleatorios declaran una semilla en su bloque inicial de
-parámetros. Las libretas 04 y 07 usan `RANDOM_STATE = 42`; el resto de los
-experimentos no contiene operaciones estocásticas. Cambiar una semilla o un
-parámetro científico debe quedar registrado en la libreta y en el commit
-correspondiente.
+Final figures and summary tables are stored under `results/figures/` and
+`results/tables/`. Models, logs, and temporary outputs are reproducible and
+ignored by Git.
 
-## Privacidad
+Where applicable, notebooks declare their random seed and analysis parameters.
+Notebooks 04 and 07 use `RANDOM_STATE = 42`; changes to a seed or scientific
+parameter should be documented in the notebook and its corresponding commit.
+Full numerical reproduction requires the restricted input data and the
+software environment defined in `environment.yml`.
 
-Los identificadores de las tablas públicas son identificadores técnicos de
-secuenciación. Aun así, antes de publicar una versión del repositorio debe
-revisarse la autorización de redistribución de cada entrada del manifiesto. La
-eliminación de un archivo en la rama actual no lo elimina automáticamente del
-historial anterior de Git.
+## License
+
+See [LICENSE](LICENSE).

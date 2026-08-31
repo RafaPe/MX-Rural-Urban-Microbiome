@@ -1,27 +1,27 @@
-# Datos de los experimentos
+# Data access
 
-El repositorio sólo versiona insumos externos públicos y productos procesados
-sin identificadores directos.
+This directory documents the input locations used by the analyses. It does not
+distribute restricted research inputs.
 
-- `external/`: fuentes públicas obtenidas de terceros, conservadas sin cambios
-  sustantivos.
-- `processed/`: matrices y metadatos derivados que consumen las libretas.
-- `private/`: datos sensibles disponibles únicamente de forma local e ignorados
-  por Git.
-- `raw/` e `interim/`: entradas crudas y productos temporales locales, también
-  ignorados.
+## Versioned files
 
-`manifest.csv` documenta la procedencia y las libretas consumidoras. Antes de
-hacer público el repositorio se debe revisar nuevamente la autorización de
-redistribución de cada archivo. Los libros de encuestas, nutrición, EEG y el
-metadato LATINBIOTA completo no forman parte de la versión pública.
+The repository tracks only the following data-related files:
 
-La tabla `processed/latinbiota_sample_metadata.csv` se deriva del metadato
-privado. Conserva únicamente el identificador técnico de secuenciación y las
-categorías requeridas por los experimentos; elimina nombres de proveedor,
-identificadores públicos, edad y BMI exactos.
+- `manifest.csv`, which documents required inputs, their access level, and the
+  analyses that use them;
+- `external/camda_2026_metadata.tsv`, a public CAMDA 2026 metadata file; and
+- `processed/latinbiota_sample_metadata.csv`, a deidentified table containing
+  only the technical sequencing identifier and the categories required by the
+  notebooks.
 
-Las matrices `processed/taxonomic_genus_clr_pseudocount_150.csv` y
-`processed/taxonomic_genus_relative_abundance.csv` son entradas congeladas de la
-libreta 07. Se conservan en `data/processed/` para que ese experimento no dependa
-de haber ejecutado previamente la libreta 02.
+## Restricted inputs
+
+Taxonomic profiles, functional pathway tables, GBM modules, genome-bin
+classifications, resistance annotations, and related derived matrices are local
+only and ignored by Git. They are available upon request from the repository
+maintainer, subject to the appropriate authorization and data-use conditions.
+
+After receiving authorization, place the files at the paths listed in
+`manifest.csv`. Do not commit them, raw data, surveys, full metadata, or any
+potentially identifiable information. The `raw/`, `interim/`, and `private/`
+directories are likewise intended for local use only.
