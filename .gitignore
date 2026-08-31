@@ -43,16 +43,19 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,jupyternotebooks
 
-# Datos locales o sensibles. Los insumos publicables viven en data/external y
-# data/processed; el antiguo datasets/ se conserva sólo como ubicación local.
+# Local or restricted research data. Taxonomic and functional inputs are
+# available upon request and must never be committed.
 datasets/
 data/*
+!data/.gitkeep
 !data/README.md
 !data/manifest.csv
 !data/external/
-!data/external/**
+data/external/*
+!data/external/camda_2026_metadata.tsv
 !data/processed/
-!data/processed/**
+data/processed/*
+!data/processed/latinbiota_sample_metadata.csv
 
 #Ignore images
 imgs/*
